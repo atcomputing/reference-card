@@ -30,13 +30,13 @@
     <HorizontalScrollView
                       android:layout_width="fill_parent" 
                       android:layout_height="wrap_content"
+                      android:paddingTop="20dp"
                       android:scrollbars="none">
     <TextView
     android:id="@+id/ldescription"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="2dp"
-    android:paddingTop="2dp"
     android:textSize="@dimen/textSizeFlags"
     android:textColor ="@color/boxcmdflags" />
     </HorizontalScrollView>
