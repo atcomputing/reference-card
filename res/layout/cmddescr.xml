@@ -9,27 +9,36 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="2dp"
-    android:textSize="10sp"
+    android:textSize="@dimen/textSizeDescription"
     android:textColor ="@color/boxcmddescr" />
+    
+    <HorizontalScrollView
+                      android:layout_width="fill_parent" 
+                      android:layout_height="wrap_content"
+                      android:scrollbars="none">
     <TextView  
 	android:id="@+id/synopsis"  
-    android:layout_width="fill_parent" 
+    android:layout_width="wrap_content" 
     android:layout_height="fill_parent"
     android:padding="2dp"
-    android:textSize="9sp"
-    android:textColor ="@color/boxcmdsynopsis"
-    android:gravity="center"    
-    android:typeface="monospace" /> 
-    <TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="fill_parent"
-    android:text = "" />
+    android:textSize="@dimen/textSizeSynopsis"
+    android:textColor ="@color/boxcmdsynopsis"    
+    android:typeface="monospace"
+    
+    />
+    </HorizontalScrollView>
+    <HorizontalScrollView
+                      android:layout_width="fill_parent" 
+                      android:layout_height="wrap_content"
+                      android:scrollbars="none">
     <TextView
     android:id="@+id/ldescription"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="2dp"
-    android:textSize="9sp"
+    android:paddingTop="2dp"
+    android:textSize="@dimen/textSizeFlags"
     android:textColor ="@color/boxcmdflags" />
+    </HorizontalScrollView>
 </LinearLayout>
 </ScrollView>

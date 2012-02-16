@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
     	android:textStyle="bold"
-    	android:textSize="10sp"
+    	android:textSize="@dimen/textSizeRowItem"
     	android:bufferType="spannable"
     	android:typeface="monospace"
     	android:textColor ="@color/listcolumn1" />
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
     	android:textStyle="normal"
-    	android:textSize="10sp"
+    	android:textSize="@dimen/textSizeRowItem"
     	android:bufferType="spannable"
     	android:textColor ="@color/listcolumn2" />
 </LinearLayout>
