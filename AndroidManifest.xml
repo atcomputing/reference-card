@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="nl.atcomputing.refcard"
+    android:versionCode="5"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="7" />
+
+    <application
+        android:icon="@drawable/at"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <activity
+            android:name=".SplashScreen"
+            android:label="@string/app_name"
+            android:screenOrientation="nosensor" >
+			<intent-filter>
+				<action   android:name="android.intent.action.MAIN"/>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".ATComputingrefcardActivity"
+            android:screenOrientation="nosensor" >
+             <intent-filter >
+                <action   android:name="android.intent.action.TABS" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".CommandActivity"
+            android:screenOrientation="nosensor" >
+            <intent-filter >
+                <action   android:name="android.intent.action.CMD" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".ViActivity"
+            android:screenOrientation="nosensor" >
+            <intent-filter >
+                <action   android:name="android.intent.action.VI" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".RegExpActivity"
+            android:screenOrientation="nosensor" >
+            <intent-filter >
+                <action   android:name="android.intent.action.REGEXP" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>        
+    </application>
+    <support-screens android:anyDensity="True"
+                     android:smallScreens="True"
+                     android:largeScreens="True"/>
+</manifest>

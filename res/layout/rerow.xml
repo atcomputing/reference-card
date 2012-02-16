@@ -1,0 +1,31 @@
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:paddingTop="4dip"
+     android:paddingBottom="4dip"
+     android:paddingLeft="5px"
+     android:clickable="false"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+ 
+     <TextView android:id="@+id/resymbol"
+        android:layout_width="58dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+    	android:textStyle="bold"
+    	android:textSize="7pt"
+    	android:focusable="false"
+    	android:bufferType="spannable"
+    	android:typeface="monospace"
+    	android:textColor ="@color/listcolumn1" />
+ 
+     <TextView android:id="@+id/retext"
+        android:layout_width="62dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+    	android:textStyle="normal"
+    	android:textSize="7pt"
+    	android:focusable="false"
+    	android:bufferType="spannable"
+    	android:textColor ="@color/listcolumn2" />
+</LinearLayout>

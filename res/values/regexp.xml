@@ -1,0 +1,52 @@
+<resources>
+    <string-array name="regexpb_array">
+        <item>^@anchor: begin of line</item>
+        <item>$@anchor: end of line</item>
+        <item>" @ "</item>
+        <item>.@any character</item>
+        <item>[abc]@one of a, b or c</item>
+        <item>[a-z]@one of a through z</item>
+        <item>[^abc]@one char, not a, b or c</item>
+        <item>[^0-9]@one char, not digit</item>
+		<item>\\c@literal c</item>
+		<item>" @ "</item>
+		<item>c*@zero or more times c</item>
+		<item>c\\{M\\}@M times c</item>
+		<item>c\\{M,\\}@M or more times c</item>
+		<item>c\\{M,N\\}@M till N times c</item>
+		<item>" @ "</item>
+		<item>[:alpha:]@one letter</item>
+		<item>[:lower:]@one lower case letter</item>
+		<item>[:upper:]@one upper case letter</item>
+		<item>[:digit:]@one digit</item>
+		<item>[:alnum:]@one letter or digit</item>
+		<item>[:punct:]@one punctuation mark</item>
+		<item>[:blank:]@one space or tab</item>
+		<item>[:space:]@one white space character</item>
+	</string-array>
+    
+    <string-array name="regexpe_array">
+        <item>(abc|xyz)@abc OR xyz</item>
+        <item>" @ "</item>
+        <item>c*@zero or more times c</item>
+        <item>c+@one or more times c</item>
+        <item>c?@zero or one time c</item>
+        <item>c{M}@M times c</item>
+        <item>c{M,}@M or more times c</item>
+        <item>c{M,N}@M till N times c</item>      
+    </string-array>
+        
+    <string-array name="regexpp_array">
+        <item>\\b@anchor: word boundary</item>
+        <item>\\B@anchor: non-word boundary</item>
+        <item>" @ "</item>
+		<item>\\w@one word character incl. \'_\'</item>
+		<item>\\W@one non-word character</item>
+		<item>\\s@one whitespace character</item>
+		<item>\\S@one non-whitespace character</item>
+		<item>\\d@one digit</item>
+		<item>\\D@one non-digit</item>
+		<item>\\t@one tab</item>
+		<item>\\n@one newline</item>
+    </string-array>
+</resources>

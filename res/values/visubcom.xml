@@ -1,0 +1,71 @@
+<resources>
+    <string-array name="visubcomm_array">
+        <item>h@One position left</item>
+        <item>j@One line down</item>
+        <item>k@One line up</item>
+        <item>l@One position right</item>
+        <item>space@One position right</item>
+        <item>w@Next word</item>
+        <item>b@Previous word</item>
+        <item>e@End of word</item>
+        <item>fc@Find next c on line</item>
+        <item>Fc@Find previous c on line</item>
+        <item>^@Begin of text on line</item>
+        <item>0@Begin of line</item>
+        <item>$@End of line</item>
+        <item>"/regexp@Search regexp downwards"</item>
+        <item>"?regexp@Search regexp upwards"</item>
+        <item>n@Search next</item>
+        <item>N@Search previous</item>
+        <item>%@Search matching pair () [] {}</item>
+        <item>Enter@Begin of next line </item>
+        <item>+@Begin of next line</item>
+        <item>-@Begin of previous line</item>
+        <item>nG@Goto line n</item>
+        <item>G@Goto last line</item>
+        <item>H@Goto first screen line</item>
+        <item>L@Goto last screen line</item>
+        <item>ctrl-F@Forward one screen</item>
+        <item>PgDn@Forward one screen</item>
+        <item>ctrl-B@Backward one screen</item>
+        <item>PgUp@Backward one screen</item>
+        <item>ctrl-D@Half screen downwards</item>
+        <item>ctrl-U@Half screen upwards</item>
+    </string-array>
+
+    <string-array name="visubcomi_array">
+        <item>a...Esc@Append after</item>
+        <item>i...Esc@Insert before</item>
+        <item>o...Esc@Open new line below</item>
+        <item>O...Esc@Open new line above</item>
+        <item>R...Esc@Replace existing text</item>
+        <item>rc@Replace current char by c</item>
+    </string-array>
+    
+    <string-array name="visubcome_array">
+        <item>dM@Delete (cut) till movement M</item>
+        <item>yM@Yank (copy) till movement M</item>
+        <item>cM...Esc@Change till movement M</item>
+        <item>dd@Delete entire line</item> 
+        <item>x@Delete current char</item>
+        <item>X@Delete previous char</item>
+        <item>p@Paste buffer after</item>
+        <item>P@Paste buffer before</item>
+        <item>J@Join current and next line</item>
+        <item>~@Swap upper-lower case</item>
+        <item>u@Undo last modification</item>
+        <item>ctrl-R@Redo previous undo</item>
+    </string-array>
+    
+    <string-array name="visubcomf_array">
+        <item>:wq@Save data and quit</item>
+        <item>ZZ@Save data and quit</item>
+        <item>:x@Save data and quit</item>
+        <item>:q@Quit without save</item>
+        <item>:q!@Quit without save forcibly</item>
+        <item>:e!@Restart editing</item>
+        <item>:w [file]@Save data (as file)</item>
+        <item>:w! file@Save data as existing file</item>
+        <item>:r file@Read file after line</item>
+    </string-array>
+</resources>
