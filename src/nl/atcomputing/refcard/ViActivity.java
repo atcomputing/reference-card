@@ -4,22 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import android.app.Activity;
 import android.app.ExpandableListActivity;
-import android.app.ListActivity;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.text.Html;
-import android.text.Spanned;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.SimpleExpandableListAdapter;
-import android.widget.TextView;
 
 public class ViActivity extends ExpandableListActivity {
 	private String[] visubcmdf;

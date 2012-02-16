@@ -14,7 +14,7 @@
         <item>cat!Concatenate and print![−enstuv] [file]...!−e = show $ at end of line\n−n = number lines\n−s = do not report non-existent files\n−t = show tabs as ˆI\n−u = unbuffered output\n−v = show non-printing characters visibly</item>
         <item>cd!Change working directory![−P] [directory]\ncd −!− = return to previous directory\n−P = use physical path (interpret symlinks)</item>
         <item>chgrp!Change group of file![−R] group file...!−R = process files and directories recursively</item>
-        <item>chmod!Change file permissions![−R] mode[,mode...] file...!−R = process files and directories recursively\nmode: [ugoa]+|-|=[rwxst]\nmode: octalvalue, formed by adding 4000 (setuid), 2000 (setgid), 1000 (sticky bit), 0i00 (owner permission), 00i0 (group permission) and 000i (others permission). Values for i are the sum of: 4 (read), 2 (write) and 1 (execute).</item>
+        <item>chmod!Change file permissions![−R] mode[,mode...] file...!−R = process files and directories recursively\n\nmode: [ugoa]+|-|=[rwxst]\nmode: octalvalue, formed by adding 4000 (setuid), 2000 (setgid), 1000 (sticky bit), 0i00 (owner permission), 00i0 (group permission) and 000i (others permission). Values for i are the sum of: 4 (read), 2 (write) and 1 (execute).</item>
         <item>chown!Change owner of file![−hR] user[:group] file...!−h = change owner of symlink\n−R = process files and directories recursively</item>
         <item>cmp!Compare two files![−ls] file1 file2!−l = show byte number and differing bytes\n−s = show nothing\nOne file argument can be − for standard input</item>
         <item>compress!Compress data![−v] [file]...!−v = verbose</item>

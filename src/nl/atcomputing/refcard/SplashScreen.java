@@ -36,7 +36,7 @@ public class SplashScreen extends Activity {
 	                i.setClass(sPlashScreen, ATComputingrefcardActivity.class);
 	        		startActivity(i);
 	                
-	                stop();
+	                //stop();
 	            }
 	        }
 	    };

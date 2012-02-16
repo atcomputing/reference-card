@@ -7,7 +7,7 @@
 
     <string name="about_ref">About reference</string>
     <string name="about_atc">About AT Computing</string>
-    <string name="explain_ref">This reference is intended for starting and experienced Linux users. It contains the name, synopsis and a short description of frequently used commands, frequently used vim subcommands and regular expression notation.\nNot all (sub)commands are listed.</string>
+    <string name="explain_ref">Version 1.0\n\nThis reference is intended for starting and experienced Linux users. It contains the name, synopsis and a short description of frequently used commands, frequently used vim subcommands and regular expression notation.\nNot all (sub)commands are listed.\n\n(c) Copyright 2012 AT Computing</string>
     <string name="explain_atc">AT Computing is a team of specialized educators and solution providers in the field of Linux, UNIX and programming: your one-stop shop for Linux and UNIX knowledge transfer.\n\nEmail: info@atcomputing.nl\nWebsite: www.atcomputing.nl</string>
 
     <string name="label_cmdref">Command\nReference</string>

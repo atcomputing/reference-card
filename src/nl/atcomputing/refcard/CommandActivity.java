@@ -104,9 +104,9 @@ public class CommandActivity extends ListActivity implements OnItemClickListener
 
 		// setup the dialogue box
 		AlertDialog.Builder box = new AlertDialog.Builder(this);
-		
+	    
 		box.setIcon(R.drawable.at);		
-		box.setTitle(getResources().getString(title) + " " + cmd);
+		box.setTitle(cmd);
 		box.setView(view);
 		
 		box.setCancelable(false);

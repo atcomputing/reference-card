@@ -1,17 +1,11 @@
 package nl.atcomputing.refcard;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.TabActivity;
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -81,6 +75,7 @@ public class ATComputingrefcardActivity extends TabActivity {
 	
 	private void showAbout(int title, CharSequence body) {
 		// When clicked, show the description of the flags
+		
 		AlertDialog.Builder box = new AlertDialog.Builder(this);
 		box.setIcon(R.drawable.at);
 		box.setTitle(title);

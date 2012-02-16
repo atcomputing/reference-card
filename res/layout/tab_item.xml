@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:padding="3px"
     android:textStyle="bold"
-    android:textSize="7pt"
+    android:textSize="10sp"
     android:gravity="center"
 	android:background="@drawable/tab_bg"
     android:textColor="@color/tab_text" />
