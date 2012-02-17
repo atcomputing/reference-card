@@ -7,7 +7,7 @@
     <uses-sdk android:minSdkVersion="7" />
 
     <application
-        android:icon="@drawable/at"
+        android:icon="@drawable/at_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
