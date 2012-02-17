@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 
 public class SplashScreen extends Activity {	
-	protected int _splashTime = 2500; 	// in milliseconds
+	protected int _splashTime = 2000; 	// in milliseconds
 	private Thread splashTread;
 
 	/** Called when the activity is first created. */

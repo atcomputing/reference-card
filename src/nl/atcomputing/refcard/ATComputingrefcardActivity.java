@@ -65,7 +65,7 @@ public class ATComputingrefcardActivity extends TabActivity {
 	        showAbout(R.string.atcomp, getResources().getString(R.string.explain_atc));
 	        break;
 		case 2:
-	        showAbout(R.string.atcomp, getResources().getString(R.string.explain_ref));
+	        showAbout(R.string.atref, getResources().getString(R.string.explain_ref));
 			break;
 		default:
 			return super.onContextItemSelected(item);

@@ -14,15 +14,19 @@
 		<item>c\\{M\\}@M times c</item>
 		<item>c\\{M,\\}@M or more times c</item>
 		<item>c\\{M,N\\}@M till N times c</item>
-		<item>" @ "</item>
-		<item>[:alpha:]@one letter</item>
-		<item>[:lower:]@one lower case letter</item>
-		<item>[:upper:]@one upper case letter</item>
-		<item>[:digit:]@one digit</item>
+		<item>" @ "</item>		
 		<item>[:alnum:]@one letter or digit</item>
-		<item>[:punct:]@one punctuation mark</item>
+		<item>[:alpha:]@one letter</item>
 		<item>[:blank:]@one space or tab</item>
+		<item>[:cntrl:]@one control character</item>
+		<item>[:digit:]@one digit</item>
+		<item>[:graph:]@one visible character</item>
+		<item>[:lower:]@one lower case letter</item>
+		<item>[:print:]@one visible character or space</item>
+		<item>[:punct:]@one punctuation mark</item>
 		<item>[:space:]@one white space character</item>
+		<item>[:upper:]@one upper case letter</item>
+		<item>[:xdigit:]@one hexadecimal digit</item>
 	</string-array>
     
     <string-array name="regexpe_array">
@@ -40,7 +44,7 @@
         <item>\\b@anchor: word boundary</item>
         <item>\\B@anchor: non-word boundary</item>
         <item>" @ "</item>
-		<item>\\w@one word character incl. \'_\'</item>
+		<item>\\w@one word character incl. _</item>
 		<item>\\W@one non-word character</item>
 		<item>\\s@one whitespace character</item>
 		<item>\\S@one non-whitespace character</item>
@@ -48,5 +52,9 @@
 		<item>\\D@one non-digit</item>
 		<item>\\t@one tab</item>
 		<item>\\n@one newline</item>
+		<item>\\r@one return</item>
+		<item>\\f@one form feed</item>
+		<item>\\a@one alarm code</item>
+		<item>\\e@one escape</item>
     </string-array>
 </resources>
