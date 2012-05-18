@@ -4,22 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import android.app.Activity;
 import android.app.ExpandableListActivity;
-import android.app.ListActivity;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.text.Spanned;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.SimpleExpandableListAdapter;
-import android.widget.TextView;
-import android.text.Html;
 
 public class RegExpActivity extends ExpandableListActivity {
 	private String[] regexpb;
@@ -55,29 +42,30 @@ public class RegExpActivity extends ExpandableListActivity {
     
 	// Create the group list (first level menu items) for the basic
     // and extended regular expressions
-	private List createGroupList() {
-		  ArrayList result = new ArrayList();
-		  HashMap map;
+	private List<HashMap<String, String>> createGroupList() {
+		  ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String,String>>();
+		  HashMap<String, String> map;
 
-		  map = new HashMap();
+		  map = new HashMap<String, String>();
 		  map.put("reCategory", getResources().getString(R.string.re_basic));
 		  result.add(map);
 		  
-		  map = new HashMap();
+		  map = new HashMap<String, String>();
 		  map.put("reCategory", getResources().getString(R.string.re_extended));
 		  result.add(map);
 
-		  map = new HashMap();
+		  map = new HashMap<String, String>();
 		  map.put("reCategory", getResources().getString(R.string.re_perl));
 		  result.add(map);
 		  
-		  return (List)result;
+		  return (List<HashMap<String, String>>) result;
 	}
 
 	// Creates the child list (second level lists) for the basic and
 	// extended regular expressions
-	private List createChildList() {
-		ArrayList result = new ArrayList();
+	private List<ArrayList<HashMap<String, String>>> createChildList() {
+		ArrayList<ArrayList<HashMap<String, String>>> result = 
+				new ArrayList<ArrayList<HashMap<String, String>>>();
 
 	    addItemsToMap(result, regexpb);
 	    addItemsToMap(result, regexpe);
@@ -86,9 +74,9 @@ public class RegExpActivity extends ExpandableListActivity {
 		return result;
 	}
 	
-	private void addItemsToMap(ArrayList mylist, String[] strTab) {
-		  ArrayList secList = new ArrayList();
-		  HashMap map;
+	private void addItemsToMap(ArrayList<ArrayList<HashMap<String, String>>> mylist, String[] strTab) {
+		  ArrayList<HashMap<String, String>> secList = new ArrayList<HashMap<String, String>>();
+		  HashMap<String, String> map;
 
 		  for (int i=0, nel=strTab.length; i < nel; i++) {
 			  String[] reTab = strTab[i].split("@");
