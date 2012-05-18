@@ -36,8 +36,11 @@ public class RegExpActivity extends ExpandableListActivity {
 					new String[] {"resym", "redesc"},
 					new int[]    {R.id.resymbol, R.id.retext}
 				);
-  	  	
+
   	  	setListAdapter(expListAdapter);
+  	  	
+  	  	// Prevent setting background to black when scrolling
+  	  	getExpandableListView().setCacheColorHint(0x00000000);
     }
     
 	// Create the group list (first level menu items) for the basic
