@@ -44,33 +44,35 @@ public class ViActivity extends ExpandableListActivity {
  
 	// Create the group list (first level menu items) for the four categories
     // of Vim subcommands
-	private List createGroupList() {
-		  ArrayList result = new ArrayList();
-		  HashMap map;
+	private List<HashMap<String, String>> createGroupList() {
+		  ArrayList<HashMap<String, String>> result = 
+				  new ArrayList<HashMap<String, String>>();
+		  HashMap<String, String> map;
 
-		  map = new HashMap();
+		  map = new HashMap<String, String>();
 		  map.put("viCategory", getResources().getString(R.string.vi_file));
 		  result.add(map);
 		  
-		  map = new HashMap();
+		  map = new HashMap<String, String>();
 		  map.put("viCategory", getResources().getString(R.string.vi_move));
 		  result.add(map);
 		  
-		  map = new HashMap();
+		  map = new HashMap<String, String>();
 		  map.put("viCategory", getResources().getString(R.string.vi_input));
 		  result.add(map);
 		  
-		  map = new HashMap();
+		  map = new HashMap<String, String>();
 		  map.put("viCategory", getResources().getString(R.string.vi_edit));
 		  result.add(map);
 		  
-		  return (List)result;
+		  return (List<HashMap<String, String>>) result;
 	}
 
 	// Creates the child list (second level lists) for the categories
 	// of Vim subcommands
-	private List createChildList() {
-		ArrayList result = new ArrayList();
+	private List<ArrayList<HashMap<String, String>>> createChildList() {
+		ArrayList<ArrayList<HashMap<String, String>>> result = 
+				new ArrayList<ArrayList<HashMap<String, String>>>();
 
 	    addItemsToMap(result, visubcmdf);
 	    addItemsToMap(result, visubcmdm);
@@ -80,9 +82,10 @@ public class ViActivity extends ExpandableListActivity {
 		return result;
 	}
 	
-	private void addItemsToMap(ArrayList mylist, String[] strTab) {
-		  ArrayList secList = new ArrayList();
-		  HashMap map;
+	private void addItemsToMap(ArrayList<ArrayList<HashMap<String, String>>> mylist, String[] strTab) {
+		  ArrayList<HashMap<String, String>> secList = 
+				  new ArrayList<HashMap<String, String>>();
+		  HashMap<String, String> map;
 
 		  for (int i=0, nel=strTab.length; i < nel; i++) {
 			  String[] viTab = strTab[i].split("@");

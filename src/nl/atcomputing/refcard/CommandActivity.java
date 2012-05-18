@@ -5,19 +5,13 @@ import java.util.HashMap;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.res.Configuration;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -49,7 +43,10 @@ public class CommandActivity extends ListActivity implements OnItemClickListener
       
 	  // Create a list view and attach an adapter to bind the mapped values
 	  ListView lv = getListView();
-
+	  
+	  // Prevent setting background to black when scrolling
+	  lv.setCacheColorHint(0x00000000);
+	  
       SimpleAdapter cmdlist = new SimpleAdapter(this, mylist, R.layout.cmdrow,
                   new String[] {"cmdname", "cmddesc"},
                   new int[]    {R.id.cmdname, R.id.cmddesc});
