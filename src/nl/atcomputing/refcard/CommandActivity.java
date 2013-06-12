@@ -60,6 +60,15 @@ public class CommandActivity extends ListActivity implements OnItemClickListener
 	  lv.setOnItemClickListener(this);
 	}
 
+	/**
+	 * Added to fix ClassCastException bug in some android versions
+	 * as reported by users
+	 */
+	@Override
+    protected void onRestoreInstanceState(Bundle state) {
+    	
+    }
+	
 	// React on a list selection by the user
 	// The index of the original selection list is given
   	public void onItemClick(AdapterView<?> parent, View v, int index, long id) {

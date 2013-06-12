@@ -44,6 +44,15 @@ public class ViActivity extends ExpandableListActivity {
 	  // Prevent setting background to black when scrolling
 	  getExpandableListView().setCacheColorHint(0x00000000);
     }
+	
+	/**
+	 * Added to fix ClassCastException bug in some android versions
+	 * as reported by users
+	 */
+	@Override
+    protected void onRestoreInstanceState(Bundle state) {
+    	
+    }
  
 	// Create the group list (first level menu items) for the four categories
     // of Vim subcommands

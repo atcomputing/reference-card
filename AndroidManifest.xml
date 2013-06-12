@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nl.atcomputing.refcard"
-    android:versionCode="6"
+    android:versionCode="7"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="7" />
+    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="17"/>
 	<uses-feature android:name="android.hardware.touchscreen" 
                   android:required="false"/>
 	
 	<supports-screens android:xlargeScreens="true" />
 	
     <application
+        android:allowBackup="true"
         android:icon="@drawable/at_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >

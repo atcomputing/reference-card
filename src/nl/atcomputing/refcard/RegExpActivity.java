@@ -43,6 +43,15 @@ public class RegExpActivity extends ExpandableListActivity {
   	  	getExpandableListView().setCacheColorHint(0x00000000);
     }
     
+    /**
+	 * Added to fix ClassCastException bug in some android versions
+	 * as reported by users
+	 */
+    @Override
+    protected void onRestoreInstanceState(Bundle state) {
+    	
+    }
+    
 	// Create the group list (first level menu items) for the basic
     // and extended regular expressions
 	private List<HashMap<String, String>> createGroupList() {

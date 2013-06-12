@@ -49,6 +49,15 @@ public class ATComputingrefcardActivity extends TabActivity {
         tabHost.setCurrentTab(0);
     }
  
+    /**
+	 * Added to fix ClassCastException bug in some android versions
+	 * as reported by users
+	 */
+    @Override
+    protected void onRestoreInstanceState(Bundle state) {
+    	
+    }
+    
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// prepare the menu titles to be shown when the menu key is pressed 
