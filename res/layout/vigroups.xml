@@ -1,15 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
 
-    <TextView android:id="@+id/vicategory"
-		 android:paddingLeft="60dp"
-		 android:paddingTop="10dp"
-		 android:paddingBottom="10dp"
-         android:textSize="@dimen/textSizeExpList"
-         android:textStyle="bold|italic"
-         android:textColor="@color/groupitem"
-         android:layout_width="fill_parent"
-         android:layout_height="fill_parent"/>
+    <TextView
+        android:id="@+id/vicategory"
+        style="@style/GroupItem" />
+
 </LinearLayout>

@@ -3,27 +3,15 @@
      android:paddingTop="4dp"
      android:paddingBottom="6dp"
      android:paddingLeft="5dp"
+     android:paddingRight="5dp"
      android:clickable="false"
      android:layout_width="fill_parent"
      android:layout_height="wrap_content"
      android:orientation="horizontal">
  
      <TextView android:id="@+id/visubcom"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-    	android:textStyle="bold"
-    	android:textSize="@dimen/textSizeRowItem"
-    	android:bufferType="spannable"
-    	android:typeface="monospace"
-    	android:textColor ="@color/listcolumn1" />
+        style="@style/RowItem.NameText" />
  
      <TextView android:id="@+id/visubtext"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-    	android:textStyle="normal"
-    	android:textSize="@dimen/textSizeRowItem"
-    	android:bufferType="spannable"
-    	android:textColor ="@color/listcolumn2" />
+        style="@style/RowItem.DescText" />
 </LinearLayout>

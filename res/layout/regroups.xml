@@ -5,12 +5,5 @@
     android:cacheColorHint="@android:color/transparent" >
 
     <TextView android:id="@+id/recategory"
-		 android:paddingLeft="60dp"
-		 android:paddingTop="10dp"
-		 android:paddingBottom="10dp"
-         android:textSize="@dimen/textSizeExpList"
-         android:textStyle="bold|italic"
-         android:textColor="@color/groupitem"
-         android:layout_width="fill_parent"
-         android:layout_height="fill_parent"/>
+		 style="@style/GroupItem"/>
 </LinearLayout>
