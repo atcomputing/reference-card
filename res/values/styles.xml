@@ -30,11 +30,10 @@
     </style>
 
     <style name="RowItem">
-        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_width">110dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/textSizeRowItem</item>
         <item name="android:padding">2dp</item>
-        <item name="android:bufferType">spannable</item>
     </style>
 
     <style name="RowItem.NameText">
