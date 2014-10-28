@@ -5,4 +5,5 @@
     <dimen name="textSizeSynopsis">15dp</dimen>
     <dimen name="textSizeFlags">15dp</dimen>
     <dimen name="textSizeExpList">15dp</dimen>
+    <dimen name="rowItemWidth">110dp</dimen>
 </resources>

@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="textSizeDescription">22dp</dimen>
+    <dimen name="textSizeTab">19dp</dimen>
+    <dimen name="textSizeRowItem">21dp</dimen>
+    <dimen name="textSizeSynopsis">19dp</dimen>
+    <dimen name="textSizeFlags">19dp</dimen>
+    <dimen name="textSizeExpList">19dp</dimen>
+    <dimen name="rowItemWidth">143dp</dimen>
+</resources>
