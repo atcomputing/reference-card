@@ -5,6 +5,7 @@ import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -60,20 +61,19 @@ public class ATComputingrefcardActivity extends TabActivity {
     
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// prepare the menu titles to be shown when the menu key is pressed 
-	    menu.add(0, 1, 0, R.string.about_atc);
-	    menu.add(0, 2, 0, R.string.about_ref);
-	    return super.onCreateOptionsMenu(menu);  
+		MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.menu, menu);
+		return true;  
 	}
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // determine what happens when one of the menu button is pressed
 		switch (item.getItemId()) {
-		case 1:
+		case R.id.about_atc:
 	        showAbout(R.string.atcomp, getResources().getString(R.string.explain_atc));
 	        break;
-		case 2:
+		case R.id.about_refcard:
 	        showAbout(R.string.atref, getResources().getString(R.string.explain_ref));
 			break;
 		default:
