@@ -3,6 +3,8 @@
     <color name="atwhite">#FFFFFF</color>
     <color name="atblack">#000000</color>
     <color name="atblue">#007FFF</color>
+    <color name="atbluedark">#0059b3</color>
+    <color name="atbluelight">#4da5ff</color>
     <color name="atorange">#F5BD0C</color>
 
     <!-- background color of splash screen -->

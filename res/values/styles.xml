@@ -1,7 +1,24 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppBaseTheme" parent="Theme.AppCompat">
-        <!-- theme customizations can go here. -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+		<item name="windowActionBar">false</item> 
+        
+        <!-- colorPrimary is used for the default action bar background -->
+        <item name="colorPrimary">@color/atblue</item>
+
+        <!-- colorPrimaryDark is used for the status bar -->
+        <item name="colorPrimaryDark">@color/atbluedark</item>
+
+        <!--
+         colorAccent is used as the default value for colorControlActivated,
+         which is used to tint widgets
+        -->
+        <item name="colorAccent">@color/atbluelight</item>
+
+        <!--
+         You can also set colorControlNormal, colorControlActivated
+         colorControlHighlight, and colorSwitchThumbNormal.
+        -->
     </style>
 
     <style name="DescriptionText">
