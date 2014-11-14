@@ -11,6 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * TODO replace PagerAdapter with FragmentPagerAdapter https://github.com/codepath/android_guides/wiki/ViewPager-with-FragmentPagerAdapter
+ * @author martijn
+ *
+ */
 public class SlidingTabFragment extends Fragment {
 
     static final String LOG_TAG = "SlidingTabsBasicFragment";
@@ -33,7 +38,7 @@ public class SlidingTabFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_sample, container, false);
+        return inflater.inflate(R.layout.slidingtabfragment, container, false);
     }
 
     // BEGIN_INCLUDE (fragment_onviewcreated)
@@ -71,12 +76,13 @@ public class SlidingTabFragment extends Fragment {
      */
     class SamplePagerAdapter extends PagerAdapter {
 
+    	private String[] tabNames = new String[] {"Command Reference", "Vim Reference", "Regular Expressions"};
         /**
          * @return the number of pages to display
          */
         @Override
         public int getCount() {
-            return 10;
+            return tabNames.length;
         }
 
         /**
@@ -98,7 +104,7 @@ public class SlidingTabFragment extends Fragment {
          */
         @Override
         public CharSequence getPageTitle(int position) {
-            return "Item " + (position + 1);
+            return tabNames[position];
         }
         // END_INCLUDE (pageradapter_getpagetitle)
 
