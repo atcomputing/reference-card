@@ -1,15 +1,14 @@
 package nl.atcomputing.refcard;
 
+import nl.atcomputing.refcard.tabs.SlidingTabFragment;
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TabHost;
-import android.widget.TextView;
 
 public class ATComputingrefcardActivity extends ActionBarActivity {
     /** Called when the activity is first created. */
@@ -20,6 +19,11 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        SlidingTabFragment fragment = new SlidingTabFragment();
+        transaction.replace(R.id.fragment, fragment);
+        transaction.commit();
 //        
 //        // prepare TABs view
 //        TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost);
