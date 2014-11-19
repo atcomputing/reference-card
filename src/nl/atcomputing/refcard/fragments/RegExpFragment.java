@@ -1,57 +1,76 @@
-package nl.atcomputing.refcard;
+package nl.atcomputing.refcard.fragments;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import android.app.ExpandableListActivity;
+import nl.atcomputing.refcard.R;
+import nl.atcomputing.refcard.R.array;
+import nl.atcomputing.refcard.R.id;
+import nl.atcomputing.refcard.R.layout;
+import nl.atcomputing.refcard.R.string;
+
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 
-public class RegExpActivity extends ExpandableListActivity {
+public class RegExpFragment extends Fragment {
 	private String[] regexpb;
 	private String[] regexpe;
 	private String[] regexpp;
+	
+	private static RegExpFragment instance;
 
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+	public static RegExpFragment getInstance() {
+		if( instance == null ) {
+			instance = new RegExpFragment();
+		}
+		return instance;
+	}
 
-  	  	// obtain the basic and extended regexp_array
-  	  	regexpb = getResources().getStringArray(R.array.regexpb_array);
-  	  	regexpe = getResources().getStringArray(R.array.regexpe_array);
-  	  	regexpp = getResources().getStringArray(R.array.regexpp_array);
+	public static String getName() {
+		return "Regular Expressions";
+	}
 
-  	  	// define and activate the expandable list adapter
-  	  	SimpleExpandableListAdapter expListAdapter =
-			  new SimpleExpandableListAdapter(
-					this,
-					createGroupList(),
-					R.layout.regroups,
-					new String[] {"reCategory"},
-					new int[]    {R.id.recategory},
-					createChildList(),
-					R.layout.rerow,
-					new String[] {"resym", "redesc"},
-					new int[]    {R.id.resymbol, R.id.retext}
-				);
+	@Override
+	public View onCreateView(LayoutInflater inflater,
+			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		return inflater.inflate(R.layout.regexpfragment, container, false);
+	}
 
-  	  	setListAdapter(expListAdapter);
-  	  	
-  	  	// Prevent setting background to black when scrolling
-  	  	getExpandableListView().setCacheColorHint(0x00000000);
-    }
-    
-    /**
-	 * Added to fix ClassCastException bug in some android versions
-	 * as reported by users
-	 */
-    @Override
-    protected void onRestoreInstanceState(Bundle state) {
-    	
-    }
-    
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		ExpandableListView lv = (ExpandableListView) getView().findViewById(R.id.listview);
+
+
+		// obtain the basic and extended regexp_array
+		regexpb = getResources().getStringArray(R.array.regexpb_array);
+		regexpe = getResources().getStringArray(R.array.regexpe_array);
+		regexpp = getResources().getStringArray(R.array.regexpp_array);
+
+		// define and activate the expandable list adapter
+		SimpleExpandableListAdapter expListAdapter =
+				new SimpleExpandableListAdapter(
+						getActivity(),
+						createGroupList(),
+						R.layout.regroups,
+						new String[] {"reCategory"},
+						new int[]    {R.id.recategory},
+						createChildList(),
+						R.layout.rerow,
+						new String[] {"resym", "redesc"},
+						new int[]    {R.id.resymbol, R.id.retext}
+						);
+
+		lv.setAdapter(expListAdapter);
+	}
+	
 	// Create the group list (first level menu items) for the basic
     // and extended regular expressions
 	private List<HashMap<String, String>> createGroupList() {

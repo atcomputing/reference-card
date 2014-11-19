@@ -1,7 +1,14 @@
-package nl.atcomputing.refcard;
+package nl.atcomputing.refcard.fragments;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import nl.atcomputing.refcard.R;
+import nl.atcomputing.refcard.R.array;
+import nl.atcomputing.refcard.R.drawable;
+import nl.atcomputing.refcard.R.id;
+import nl.atcomputing.refcard.R.layout;
+import nl.atcomputing.refcard.R.string;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -20,11 +27,23 @@ public class CommandFragment extends ListFragment implements OnItemClickListener
 	private String[] cmdall;
 	int mCurCheckPosition = 0;
 
+	private static CommandFragment instance;
+	
+	public static CommandFragment getInstance() {
+		if( instance == null ) {
+			instance = new CommandFragment();
+		}
+		return instance;
+	}
+	
+	public static String getName() {
+		return "Command Reference";
+	}
+	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-
-
+		
 		// obtain the commands_array
 		cmdall = getResources().getStringArray(R.array.commands_array);
 
@@ -42,23 +61,17 @@ public class CommandFragment extends ListFragment implements OnItemClickListener
 			mylist.add(map);
 		}
 
-		// Create a list view and attach an adapter to bind the mapped values
-		ListView lv = getListView();
-
-		// Prevent setting background to black when scrolling
-		lv.setCacheColorHint(0x00000000);
+		
 
 		SimpleAdapter cmdlist = new SimpleAdapter(getActivity(), mylist, R.layout.cmdrow,
 				new String[] {"cmdname", "cmddesc"},
 				new int[]    {R.id.cmdname, R.id.cmddesc});
 
-		lv.setAdapter(cmdlist);
+		setListAdapter(cmdlist);
 
-		// define a filter to select the proper list items when the user starts typing
-		lv.setTextFilterEnabled(false);
-
-		// define a ClickListener to react on a list selection
+		ListView lv = getListView();
 		lv.setOnItemClickListener(this);
+		lv.setTextFilterEnabled(false);
 	}
 
 

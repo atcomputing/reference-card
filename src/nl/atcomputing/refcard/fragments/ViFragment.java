@@ -1,59 +1,77 @@
-package nl.atcomputing.refcard;
+package nl.atcomputing.refcard.fragments;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import android.app.ExpandableListActivity;
+import nl.atcomputing.refcard.R;
+import nl.atcomputing.refcard.R.array;
+import nl.atcomputing.refcard.R.id;
+import nl.atcomputing.refcard.R.layout;
+import nl.atcomputing.refcard.R.string;
+
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 
-public class ViActivity extends ExpandableListActivity {
+public class ViFragment extends Fragment {
 	private String[] visubcmdf;
 	private String[] visubcmdi;
 	private String[] visubcmde;
 	private String[] visubcmdm;
-
-    /** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle icicle) {
-	  super.onCreate(icicle);
-	  
-	  // obtain the arrays with the subcommands per category
-	  visubcmdm = getResources().getStringArray(R.array.visubcomm_array);
-	  visubcmdi = getResources().getStringArray(R.array.visubcomi_array);
-	  visubcmde = getResources().getStringArray(R.array.visubcome_array);
-	  visubcmdf = getResources().getStringArray(R.array.visubcomf_array);
-	  
-	  	// define and activate the expandable list adapter
-	  SimpleExpandableListAdapter expListAdapter =
-			  new SimpleExpandableListAdapter(
-					this,
-					createGroupList(),
-					R.layout.vigroups,
-					new String[] {"viCategory"},
-					new int[]    {R.id.vicategory},
-					createChildList(),
-					R.layout.virow,
-					new String[] {"viSubCom", "viSubText"},
-					new int[]    {R.id.visubcom, R.id.visubtext}
-				);
-	  
-	  setListAdapter(expListAdapter);
-	  
-	  // Prevent setting background to black when scrolling
-	  getExpandableListView().setCacheColorHint(0x00000000);
-    }
 	
-	/**
-	 * Added to fix ClassCastException bug in some android versions
-	 * as reported by users
-	 */
+	private static ViFragment instance;
+
+	public static ViFragment getInstance() {
+		if( instance == null ) {
+			instance = new ViFragment();
+		}
+		return instance;
+	}
+
+	public static String getName() {
+		return "Vim Reference";
+	}
+	
 	@Override
-    protected void onRestoreInstanceState(Bundle state) {
-    	
-    }
- 
+	public View onCreateView(LayoutInflater inflater,
+			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		return inflater.inflate(R.layout.regexpfragment, container, false);
+	}
+	
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		ExpandableListView lv = (ExpandableListView) getView().findViewById(R.id.listview);
+		
+		// obtain the arrays with the subcommands per category
+		  visubcmdm = getResources().getStringArray(R.array.visubcomm_array);
+		  visubcmdi = getResources().getStringArray(R.array.visubcomi_array);
+		  visubcmde = getResources().getStringArray(R.array.visubcome_array);
+		  visubcmdf = getResources().getStringArray(R.array.visubcomf_array);
+		  
+		  	// define and activate the expandable list adapter
+		  SimpleExpandableListAdapter expListAdapter =
+				  new SimpleExpandableListAdapter(
+						getActivity(),
+						createGroupList(),
+						R.layout.vigroups,
+						new String[] {"viCategory"},
+						new int[]    {R.id.vicategory},
+						createChildList(),
+						R.layout.virow,
+						new String[] {"viSubCom", "viSubText"},
+						new int[]    {R.id.visubcom, R.id.visubtext}
+					);
+		  
+		  lv.setAdapter(expListAdapter);
+	}
+	
 	// Create the group list (first level menu items) for the four categories
     // of Vim subcommands
 	private List<HashMap<String, String>> createGroupList() {

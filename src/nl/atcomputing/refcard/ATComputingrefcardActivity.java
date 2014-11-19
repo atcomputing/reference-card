@@ -24,38 +24,6 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
         SlidingTabFragment fragment = new SlidingTabFragment();
         transaction.replace(R.id.fragment, fragment);
         transaction.commit();
-//        
-//        // prepare TABs view
-//        TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost);
-//        TabHost.TabSpec spec;  				// Reusable TabSpec for each tab
-//        Intent intent; 						// Reusable Intent for each tab
-//
-//        // Create text labels for tabs
-//		TextView tab1 = (TextView) getLayoutInflater().inflate(R.layout.tab_item, null);
-//		TextView tab2 = (TextView) getLayoutInflater().inflate(R.layout.tab_item, null);
-//		TextView tab3 = (TextView) getLayoutInflater().inflate(R.layout.tab_item, null);
-//		
-//        // Create intent, initialize a TabSpec for the Command Tab and 
-//		// add it to the TabHost
-//        intent = new Intent().setClass(this, CommandActivity.class);
-//		tab1.setText(getResources().getString(R.string.label_cmdref));
-//        spec = tabHost.newTabSpec("commands").setIndicator(tab1).setContent(intent);
-//        tabHost.addTab(spec);
-//
-//        // Do the same for the Vi Tab
-//        intent = new Intent().setClass(this, ViActivity.class);
-//		tab2.setText(getResources().getString(R.string.label_viref));
-//        spec = tabHost.newTabSpec("vi").setIndicator(tab2).setContent(intent);
-//        tabHost.addTab(spec);
-//
-//        // Do the same for the RegExp Tab
-//        intent = new Intent().setClass(this, RegExpActivity.class);
-//        tab3.setText(getResources().getString(R.string.label_regexp));
-//        spec = tabHost.newTabSpec("regexp").setIndicator(tab3).setContent(intent);
-//        tabHost.addTab(spec);
-//
-//        // define the first Tab (command list) as the default
-//        tabHost.setCurrentTab(0);
     }
  
     /**
