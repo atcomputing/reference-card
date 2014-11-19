@@ -1,8 +1,10 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
-		<!--  <item name="windowActionBar">false</item> -->
-        
+
+        <!-- <item name="windowActionBar">false</item> -->
+
+
         <!-- colorPrimary is used for the default action bar background -->
         <item name="colorPrimary">@color/atblue</item>
 
@@ -24,7 +26,7 @@
     <style name="DescriptionText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:textColor">@color/boxcmddescr</item>
+        <item name="android:textColor">@color/atblue</item>
         <item name="android:textSize">@dimen/textSizeDescription</item>
         <item name="android:padding">2dp</item>
     </style>
@@ -32,7 +34,7 @@
     <style name="SynopsisText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:textColor">@color/boxcmdsynopsis</item>
+        <item name="android:textColor">@color/atbluedark</item>
         <item name="android:textSize">@dimen/textSizeSynopsis</item>
         <item name="android:padding">2dp</item>
         <item name="android:typeface">monospace</item>
@@ -41,7 +43,7 @@
     <style name="FlagsText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:textColor">@color/boxcmdflags</item>
+        <item name="android:textColor">@color/atblack</item>
         <item name="android:textSize">@dimen/textSizeFlags</item>
         <item name="android:padding">2dp</item>
     </style>
@@ -54,14 +56,15 @@
     </style>
 
     <style name="RowItem.NameText">
-        <item name="android:textColor">@color/listcolumn1</item>
+        <item name="android:textColor">@color/atblue</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">monospace</item>
     </style>
 
     <style name="RowItem.DescText">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textColor">@color/listcolumn2</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/atbluelight</item>
     </style>
 
     <style name="GroupItem">
@@ -69,20 +72,10 @@
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">10dp</item>
         <item name="android:textStyle">bold|italic</item>
-        <item name="android:textColor">@color/groupitem</item>
+        <item name="android:textColor">@color/atbluedark</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:textSize">@dimen/textSizeExpList</item>
     </style>
 
-    <style name="TabItemText">
-        <item name="android:padding">3dp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/tab_text</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:textSize">@dimen/textSizeTab</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/tab_bg</item>
-    </style>
 </resources>

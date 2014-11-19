@@ -4,19 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import nl.atcomputing.refcard.R;
-import nl.atcomputing.refcard.R.array;
-import nl.atcomputing.refcard.R.drawable;
-import nl.atcomputing.refcard.R.id;
-import nl.atcomputing.refcard.R.layout;
-import nl.atcomputing.refcard.R.string;
-
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.text.Html;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -27,17 +23,14 @@ public class CommandFragment extends ListFragment implements OnItemClickListener
 	private String[] cmdall;
 	int mCurCheckPosition = 0;
 
-	private static CommandFragment instance;
-	
-	public static CommandFragment getInstance() {
-		if( instance == null ) {
-			instance = new CommandFragment();
-		}
-		return instance;
-	}
-	
 	public static String getName() {
 		return "Command Reference";
+	}
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+//		setRetainInstance(true);
 	}
 	
 	@Override
@@ -73,8 +66,7 @@ public class CommandFragment extends ListFragment implements OnItemClickListener
 		lv.setOnItemClickListener(this);
 		lv.setTextFilterEnabled(false);
 	}
-
-
+	
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -102,12 +94,12 @@ public class CommandFragment extends ListFragment implements OnItemClickListener
 		CharSequence synops = nparts >= 3 ? cmdpart[2] : "";
 		CharSequence ldescr = nparts >= 4 ? cmdpart[3] : null;
 
-		showSynopsis(R.string.flag_title, cmdpart[0], sdescr, synops, ldescr);
+		showSynopsis(parent, R.string.flag_title, cmdpart[0], sdescr, synops, ldescr);
 	}
 
-	private void showSynopsis(int title, CharSequence cmd, CharSequence sdesc, CharSequence synop, CharSequence ldesc) {
+	private void showSynopsis(ViewGroup container, int title, CharSequence cmd, CharSequence sdesc, CharSequence synop, CharSequence ldesc) {
 		LayoutInflater li = LayoutInflater.from(getActivity());
-		View view         = li.inflate(R.layout.cmddescr, null);
+		View view         = li.inflate(R.layout.cmddescr, container, false);
 		TextView sd, sy, ld;
 
 		// prepare the TextView for the short description

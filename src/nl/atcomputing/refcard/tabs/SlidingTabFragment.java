@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,8 @@ public class SlidingTabFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
+		Log.d("SlidingTabFragment", "onViewCreated");
+		
 		mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
 		mViewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
 		
@@ -53,13 +56,14 @@ public class SlidingTabFragment extends Fragment {
 
 		@Override
 		public Fragment getItem(int position) {
+			Log.d("SlidingTabFragment", "getItem: position="+position);
 			switch (position) {
 			case 0:
-				return CommandFragment.getInstance();
+				return new CommandFragment();
 			case 1:
-				return RegExpFragment.getInstance();
+				return new RegExpFragment();
 			case 2:
-				return ViFragment.getInstance();
+				return new ViFragment();
 			default:
 				return null;
 			}

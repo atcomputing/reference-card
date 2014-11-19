@@ -5,29 +5,4 @@
     <color name="atblue">#007FFF</color>
     <color name="atbluedark">#0059b3</color>
     <color name="atbluelight">#4da5ff</color>
-    <color name="atorange">#F5BD0C</color>
-
-    <!-- background color of splash screen -->
-	<color name="bgsplash">@color/atwhite</color>
-	
-    <!-- color for TABs -->
-	<color name="tabselectedtext">@color/atwhite</color>
-	<color name="tabselectedbg">@color/atblack</color>
-	<color name="tabselectedstroke">@color/atblack</color>
-	    
-	<color name="tabunselectedtext">@color/atblack</color>
-	<color name="tabunselectedbg">@color/atorange</color>
-	<color name="tabunselectedstroke">@color/atblack</color>
-	
-	<!-- general color for group list -->
-	<color name="groupitem">@color/atorange</color>
-
-	<!-- general colors for list columns -->
-	<color name="listcolumn1">@color/atblue</color>
-	<color name="listcolumn2">@color/atwhite</color>
-
-	<!-- colors of command description dialogue box -->	
-	<color name="boxcmddescr">@color/atblue</color>
-	<color name="boxcmdsynopsis">@color/atwhite</color>
-	<color name="boxcmdflags">@color/atorange</color>
 </resources>

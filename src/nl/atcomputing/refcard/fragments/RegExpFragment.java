@@ -5,11 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import nl.atcomputing.refcard.R;
-import nl.atcomputing.refcard.R.array;
-import nl.atcomputing.refcard.R.id;
-import nl.atcomputing.refcard.R.layout;
-import nl.atcomputing.refcard.R.string;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,19 +19,16 @@ public class RegExpFragment extends Fragment {
 	private String[] regexpe;
 	private String[] regexpp;
 	
-	private static RegExpFragment instance;
-
-	public static RegExpFragment getInstance() {
-		if( instance == null ) {
-			instance = new RegExpFragment();
-		}
-		return instance;
-	}
-
 	public static String getName() {
 		return "Regular Expressions";
 	}
 
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+	}
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

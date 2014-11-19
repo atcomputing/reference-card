@@ -5,11 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import nl.atcomputing.refcard.R;
-import nl.atcomputing.refcard.R.array;
-import nl.atcomputing.refcard.R.id;
-import nl.atcomputing.refcard.R.layout;
-import nl.atcomputing.refcard.R.string;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -25,17 +20,14 @@ public class ViFragment extends Fragment {
 	private String[] visubcmde;
 	private String[] visubcmdm;
 	
-	private static ViFragment instance;
-
-	public static ViFragment getInstance() {
-		if( instance == null ) {
-			instance = new ViFragment();
-		}
-		return instance;
-	}
-
 	public static String getName() {
 		return "Vim Reference";
+	}
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
 	}
 	
 	@Override
