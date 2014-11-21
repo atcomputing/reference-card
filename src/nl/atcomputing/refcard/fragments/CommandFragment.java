@@ -4,69 +4,76 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import nl.atcomputing.refcard.R;
-import android.app.AlertDialog;
+import nl.atcomputing.refcard.recyclerview.DividerItemDecoration;
+import nl.atcomputing.refcard.recyclerview.ExpandableMapAdapter;
+import nl.atcomputing.refcard.recyclerview.ExpandableMapAdapter.OnItemClickListener;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
 
-public class CommandFragment extends ListFragment implements OnItemClickListener {
+public class CommandFragment extends Fragment implements OnItemClickListener {
 	private String[] cmdall;
-	int mCurCheckPosition = 0;
-
+	private int mCurCheckPosition = 0;
+	private ExpandableMapAdapter<String> adapter;
+	
 	public static String getName() {
 		return "Command Reference";
 	}
-	
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-//		setRetainInstance(true);
-	}
-	
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		
+		RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.recycleview, container, false);
+		recyclerView.setHasFixedSize(true);
+		LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+		recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+        
 		// obtain the commands_array
 		cmdall = getResources().getStringArray(R.array.commands_array);
 
 		// prepare an array list to map the command names with their descriptions
 		ArrayList<HashMap<String, Spanned>> mylist = new ArrayList<HashMap<String, Spanned>>();
-		HashMap<String, Spanned> map;
-
+		ArrayList<HashMap<String, String>> mySynopsislist = new ArrayList<HashMap<String, String>>();
+		
 		for (int i=0, nel=cmdall.length; i < nel; i++) {
 			String[] cmdTab = cmdall[i].split("!");
 
-			map = new HashMap<String, Spanned>();
+			HashMap<String, Spanned> map = new HashMap<String, Spanned>();
 
 			map.put("cmdname", Html.fromHtml(cmdTab[0]));
 			map.put("cmddesc", Html.fromHtml(cmdTab[1]));
 			mylist.add(map);
+			
+			int nparts          = cmdTab.length;
+
+			HashMap<String, String> synopsisMap = new HashMap<String, String>();
+			String synops = nparts >= 3 ? cmdTab[2] : "";
+			String ldescr = nparts >= 4 ? cmdTab[3] : null;
+			
+			synopsisMap.put("cmdsynops", synops);
+			synopsisMap.put("cmdlongdesc", ldescr);
+			mySynopsislist.add(synopsisMap);
 		}
 
-		
-
-		SimpleAdapter cmdlist = new SimpleAdapter(getActivity(), mylist, R.layout.cmdrow,
+		this.adapter = new ExpandableMapAdapter<String>(mylist, R.layout.cmdrow,
 				new String[] {"cmdname", "cmddesc"},
-				new int[]    {R.id.cmdname, R.id.cmddesc});
-
-		setListAdapter(cmdlist);
-
-		ListView lv = getListView();
-		lv.setOnItemClickListener(this);
-		lv.setTextFilterEnabled(false);
+				new int[]    {R.id.cmdname, R.id.cmddesc}, this);
+		this.adapter.setExpansion(mySynopsislist, R.layout.cmddescr, 
+				new String[] {"cmdsynops", "cmdlongdesc"}, 
+				new int[] {R.id.synopsis, R.id.ldescription});
+		recyclerView.setAdapter(adapter);
+		
+		return recyclerView;
 	}
-	
+
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
@@ -74,58 +81,7 @@ public class CommandFragment extends ListFragment implements OnItemClickListener
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
-			long id) {
-		// Split the command specification data of the selected item
-		// consisting of:
-		//		command name
-		//		command description
-		//		synopsis (optional)
-		//		flag description (optional)
-		
-		mCurCheckPosition = position;
-		getListView().setItemChecked(position, true);
-		
-		
-		String[] cmdpart    = cmdall[position].split("!");
-		int nparts          = cmdpart.length;
+	public void onitemClicked(View v, int position) {
 
-		CharSequence sdescr = cmdpart[1];
-		CharSequence synops = nparts >= 3 ? cmdpart[2] : "";
-		CharSequence ldescr = nparts >= 4 ? cmdpart[3] : null;
-
-		showSynopsis(parent, R.string.flag_title, cmdpart[0], sdescr, synops, ldescr);
-	}
-
-	private void showSynopsis(ViewGroup container, int title, CharSequence cmd, CharSequence sdesc, CharSequence synop, CharSequence ldesc) {
-		LayoutInflater li = LayoutInflater.from(getActivity());
-		View view         = li.inflate(R.layout.cmddescr, container, false);
-		TextView sd, sy, ld;
-
-		// prepare the TextView for the short description
-		sd = (TextView)view.findViewById(R.id.sdescription);
-		sd.setText(sdesc);
-
-		// prepare the TextView for the synopsis (optional)
-		sy = (TextView)view.findViewById(R.id.synopsis);
-		sy.setText(cmd + " " + synop);
-
-		// prepare the TextView for the flag description (optional)
-		if (ldesc != null) {
-			ld = (TextView)view.findViewById(R.id.ldescription);
-			ld.setText(ldesc);
-		}
-
-		// setup the dialogue box
-		AlertDialog.Builder box = new AlertDialog.Builder(getActivity());
-
-		box.setIcon(R.drawable.at);		
-		box.setTitle(cmd);
-		box.setView(view);
-
-		box.setCancelable(false);
-		box.setNeutralButton(R.string.confirm_ok, null);
-
-		box.show();
 	}
 }

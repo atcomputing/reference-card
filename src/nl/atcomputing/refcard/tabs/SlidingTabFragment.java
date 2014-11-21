@@ -39,6 +39,9 @@ public class SlidingTabFragment extends Fragment {
 		mViewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
 		
 		mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
+		mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.atbluedark));
+		mSlidingTabLayout.setDividerColors(getResources().getColor(R.color.atbluedark));
+		mSlidingTabLayout.setBackgroundColor(getResources().getColor(R.color.atbluelight));
 		mSlidingTabLayout.setViewPager(mViewPager);
 	}
 	

@@ -1,6 +1,7 @@
 package nl.atcomputing.refcard;
 
 import nl.atcomputing.refcard.tabs.SlidingTabFragment;
+import nl.atcomputing.refcard.tabs.SlidingTabLayout;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -19,7 +20,7 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
 
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-
+		
 		//Fragments are saved by the FragmentManager during rotation. So we do not need
 		//to recreated it when the device rotates
 		if (savedInstanceState == null) {

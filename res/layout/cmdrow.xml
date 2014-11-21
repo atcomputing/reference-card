@@ -1,16 +1,29 @@
-<LinearLayout
-     xmlns:android="http://schemas.android.com/apk/res/android"
-     android:paddingTop="6dp"
-     android:paddingBottom="6dp"
-     android:paddingLeft="2dp"
-     android:paddingRight="2dp"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:orientation="horizontal">
- 
-     <TextView style="@style/RowItem.NameText" 
-         android:id="@+id/cmdname" />
- 
-     <TextView style="@style/RowItem.DescText" 
-         android:id="@+id/cmddesc" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="6dp"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    android:paddingTop="6dp" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="6dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:paddingTop="6dp" >
+
+        <TextView
+            android:id="@+id/cmdname"
+            style="@style/RowItem.NameText" />
+
+        <TextView
+            android:id="@+id/cmddesc"
+            style="@style/RowItem.DescText" />
+    </LinearLayout>
+
 </LinearLayout>
