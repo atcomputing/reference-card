@@ -3,6 +3,7 @@ package nl.atcomputing.refcard.recyclerview;
 import java.util.List;
 import java.util.Map;
 
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spanned;
 import android.util.SparseBooleanArray;
@@ -128,6 +129,8 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 
 	@Override
 	public void onClick(View v) {
+		ViewCompat.setElevation(v, 20);
+		
 		ViewHolder vh = (ViewHolder) v.getTag();
 		int pos = vh.getPosition();
 		

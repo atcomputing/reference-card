@@ -34,7 +34,7 @@ public class CommandFragment extends Fragment implements OnItemClickListener {
 		recyclerView.setHasFixedSize(true);
 		LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
 		recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+//        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
         
 		// obtain the commands_array
 		cmdall = getResources().getStringArray(R.array.commands_array);
