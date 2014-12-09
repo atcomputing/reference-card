@@ -3,13 +3,17 @@ package nl.atcomputing.refcard.recyclerview;
 import java.util.List;
 import java.util.Map;
 
-import android.support.v4.view.ViewCompat;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spanned;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -25,11 +29,11 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 	private int[] expansionTo;
 
 	private SparseBooleanArray expanded;
-	
+
 	private OnItemClickListener listener;
 
 	public interface OnItemClickListener {
-		public void onitemClicked(View v, int position);
+		public void onItemClicked(View v, int position);
 	}
 
 	public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -73,7 +77,9 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 	/**
 	 * Sets the data elements that should be shown when item is clicked
 	 * @param data
-	 * @param resource
+	 * @param resource identifier pointing to the View that should be expanded when item is clicked. Note that View must be included in layout file provided through constructor {@link ExpandableMapAdapter}
+	 * @param from array holding the keys as used in the map. Make sure the order of keys correspond with the order of the resource identifiers in <code>int[] to</code>
+	 * @param to array holding the resource identifiers in the layout given by <code>int resource</code>
 	 */
 	public void setExpansion(List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
 		this.expansionData = data;
@@ -90,14 +96,10 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 		ViewHolder vh = new ViewHolder(v, from, to, this);
 
 		if( this.expansionData != null ) {
-			View vExpansion = LayoutInflater.from(parent.getContext())
-					.inflate(this.expansionResource, parent, false);
-			if( v instanceof ViewGroup ) {
-				vh.setExpansion(vExpansion, expansionFrom, expansionTo);
-				((ViewGroup) v).addView(vExpansion);
-			}
+			View vExpansion = v.findViewById(this.expansionResource);
+			vh.setExpansion(vExpansion, expansionFrom, expansionTo);
 		}
-		
+
 		return vh;
 	}
 
@@ -110,14 +112,14 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 				((TextView) v).setText((Spanned) item.get(from[i]));
 			}
 		}
-		
+
 		if( this.expanded.get(position, false) ) {
 			showSynopsis(holder, position);
 			holder.expansionView.setVisibility(View.VISIBLE);
 		} else {
 			holder.expansionView.setVisibility(View.GONE);
 		}
-		
+
 		holder.itemView.setTag(holder);
 	}
 
@@ -129,25 +131,33 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 
 	@Override
 	public void onClick(View v) {
-		ViewCompat.setElevation(v, 20);
-		
+
 		ViewHolder vh = (ViewHolder) v.getTag();
 		int pos = vh.getPosition();
-		
+
 		if( this.expanded.get(pos, false) ) {
 			this.expanded.put(pos, false);
-			vh.expansionView.setVisibility(View.GONE);
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+				createCircularHideAnimation(vh.expansionView);
+			} else {
+				vh.expansionView.setVisibility(View.GONE);
+			}
 		} else {
 			this.expanded.put(pos, true);
 			showSynopsis(vh, pos);
-			vh.expansionView.setVisibility(View.VISIBLE);
+
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+				createCircularRevealAnimation(vh.expansionView);
+			} else {
+				vh.expansionView.setVisibility(View.VISIBLE);
+			}
 		}
-		
+
 		if( this.listener != null ) {
-			this.listener.onitemClicked(v, pos);
+			this.listener.onItemClicked(v, pos);
 		}
 	}
-	
+
 	private void showSynopsis(ViewHolder vh, int pos) {
 		if( this.expansionData != null ) {
 			Map<String, ?> expansionItems = this.expansionData.get(pos);
@@ -158,5 +168,47 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 				}
 			}
 		}
+	}
+
+	@TargetApi(Build.VERSION_CODES.L) 
+	public void createCircularRevealAnimation(View v) {
+		// get the center for the clipping circle
+		int cx = (v.getLeft() + v.getRight()) / 2;
+		int cy = (v.getTop() + v.getBottom()) / 2;
+
+		// get the final radius for the clipping circle
+		int finalRadius = Math.max(v.getWidth(), v.getHeight());
+
+		// create the animator for this view (the start radius is zero)
+		Animator anim =
+				ViewAnimationUtils.createCircularReveal(v, cx, cy, 0, finalRadius);
+		v.setVisibility(View.VISIBLE);
+		anim.start();
+	}
+
+	@TargetApi(Build.VERSION_CODES.L) 
+	public void createCircularHideAnimation(final View v) {
+		// get the center for the clipping circle
+		int cx = (v.getLeft() + v.getRight()) / 2;
+		int cy = (v.getTop() + v.getBottom()) / 2;
+
+		// get the initial radius for the clipping circle
+		int initialRadius = v.getWidth();
+
+		// create the animation (the final radius is zero)
+		Animator anim =
+				ViewAnimationUtils.createCircularReveal(v, cx, cy, initialRadius, 0);
+
+		// make the view invisible when the animation is done
+		anim.addListener(new AnimatorListenerAdapter() {
+			@Override
+			public void onAnimationEnd(Animator animation) {
+				super.onAnimationEnd(animation);
+				v.setVisibility(View.GONE);
+			}
+		});
+
+		// start the animation
+		anim.start();
 	}
 }

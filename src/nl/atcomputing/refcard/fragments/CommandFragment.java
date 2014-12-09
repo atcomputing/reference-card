@@ -34,7 +34,7 @@ public class CommandFragment extends Fragment implements OnItemClickListener {
 		recyclerView.setHasFixedSize(true);
 		LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
 		recyclerView.setLayoutManager(mLayoutManager);
-//        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
         
 		// obtain the commands_array
 		cmdall = getResources().getStringArray(R.array.commands_array);
@@ -66,7 +66,7 @@ public class CommandFragment extends Fragment implements OnItemClickListener {
 		this.adapter = new ExpandableMapAdapter<String>(mylist, R.layout.cmdrow,
 				new String[] {"cmdname", "cmddesc"},
 				new int[]    {R.id.cmdname, R.id.cmddesc}, this);
-		this.adapter.setExpansion(mySynopsislist, R.layout.cmddescr, 
+		this.adapter.setExpansion(mySynopsislist, R.id.expansion, 
 				new String[] {"cmdsynops", "cmdlongdesc"}, 
 				new int[] {R.id.synopsis, R.id.ldescription});
 		recyclerView.setAdapter(adapter);
@@ -81,7 +81,7 @@ public class CommandFragment extends Fragment implements OnItemClickListener {
 	}
 
 	@Override
-	public void onitemClicked(View v, int position) {
+	public void onItemClicked(View v, int position) {
 
 	}
 }

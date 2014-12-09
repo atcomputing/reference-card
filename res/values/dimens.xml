@@ -6,4 +6,6 @@
     <dimen name="textSizeFlags">15dp</dimen>
     <dimen name="textSizeExpList">15dp</dimen>
     <dimen name="rowItemWidth">110dp</dimen>
+    <dimen name="touchRaise">20dp</dimen>
+    <dimen name="cmdDescrElevation">2dp</dimen>
 </resources>
