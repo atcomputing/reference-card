@@ -16,11 +16,7 @@
          which is used to tint widgets
         -->
         <item name="colorAccent">@color/atbluelight</item>
-
-        <!--
-         You can also set colorControlNormal, colorControlActivated
-         colorControlHighlight, and colorSwitchThumbNormal.
-        -->
+        
     </style>
 
     <style name="TitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
@@ -47,7 +43,7 @@
     <style name="FlagsText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:textColor">@color/atblack</item>
+        <item name="android:textColor">@color/atbluedark</item>
         <item name="android:textSize">@dimen/textSizeFlags</item>
         <item name="android:padding">2dp</item>
     </style>

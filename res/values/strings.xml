@@ -1,8 +1,7 @@
 <resources>
     <string name="atcomp">AT Computing</string>
     <string name="atref">Reference Card</string>
-    <string name="header">Linux reference</string>
-    <string name="app_name">Linux reference</string>
+    <string name="app_name">Linux Reference Card</string>
     <string name="confirm_ok">OK</string>
     <string name="flag_title">Synopsis of:</string>
 

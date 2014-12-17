@@ -8,7 +8,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
-import android.text.Spanned;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -109,7 +109,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 		for(int i = 0; i < from.length; i++) {
 			View v = holder.views[i];
 			if( v instanceof TextView ) {
-				((TextView) v).setText((Spanned) item.get(from[i]));
+				((TextView) v).setText(item.get(from[i]).toString());
 			}
 		}
 
@@ -161,7 +161,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 	private void showSynopsis(ViewHolder vh, int pos) {
 		if( this.expansionData != null ) {
 			Map<String, ?> expansionItems = this.expansionData.get(pos);
-			for(int i = 0; i < from.length; i++) {
+			for(int i = 0; i < this.expansionFrom.length; i++) {
 				View ev = vh.expansionViews[i];
 				if( ev instanceof TextView ) {
 					((TextView) ev).setText((String) expansionItems.get(this.expansionFrom[i]));
@@ -170,7 +170,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 		}
 	}
 
-	@TargetApi(Build.VERSION_CODES.L) 
+	@TargetApi(Build.VERSION_CODES.LOLLIPOP) 
 	public void createCircularRevealAnimation(View v) {
 		// get the center for the clipping circle
 		int cx = (v.getLeft() + v.getRight()) / 2;
@@ -186,7 +186,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 		anim.start();
 	}
 
-	@TargetApi(Build.VERSION_CODES.L) 
+	@TargetApi(Build.VERSION_CODES.LOLLIPOP) 
 	public void createCircularHideAnimation(final View v) {
 		// get the center for the clipping circle
 		int cx = (v.getLeft() + v.getRight()) / 2;

@@ -40,35 +40,31 @@ public class CommandFragment extends Fragment implements OnItemClickListener {
 		cmdall = getResources().getStringArray(R.array.commands_array);
 
 		// prepare an array list to map the command names with their descriptions
-		ArrayList<HashMap<String, Spanned>> mylist = new ArrayList<HashMap<String, Spanned>>();
-		ArrayList<HashMap<String, String>> mySynopsislist = new ArrayList<HashMap<String, String>>();
+		ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
 		
 		for (int i=0, nel=cmdall.length; i < nel; i++) {
 			String[] cmdTab = cmdall[i].split("!");
 
-			HashMap<String, Spanned> map = new HashMap<String, Spanned>();
+			HashMap<String, String> map = new HashMap<String, String>();
 
-			map.put("cmdname", Html.fromHtml(cmdTab[0]));
-			map.put("cmddesc", Html.fromHtml(cmdTab[1]));
-			mylist.add(map);
+			map.put("cmdname", cmdTab[0]);
+			map.put("cmddesc", cmdTab[1]);
 			
 			int nparts          = cmdTab.length;
-
-			HashMap<String, String> synopsisMap = new HashMap<String, String>();
 			String synops = nparts >= 3 ? cmdTab[2] : "";
 			String ldescr = nparts >= 4 ? cmdTab[3] : null;
+			map.put("cmdsynops", synops);
+			map.put("cmdlongdesc", ldescr);
 			
-			synopsisMap.put("cmdsynops", synops);
-			synopsisMap.put("cmdlongdesc", ldescr);
-			mySynopsislist.add(synopsisMap);
+			mylist.add(map);
 		}
 
 		this.adapter = new ExpandableMapAdapter<String>(mylist, R.layout.cmdrow,
 				new String[] {"cmdname", "cmddesc"},
 				new int[]    {R.id.cmdname, R.id.cmddesc}, this);
-		this.adapter.setExpansion(mySynopsislist, R.id.expansion, 
-				new String[] {"cmdsynops", "cmdlongdesc"}, 
-				new int[] {R.id.synopsis, R.id.ldescription});
+		this.adapter.setExpansion(mylist, R.id.expansion, 
+				new String[] {"cmdname", "cmdsynops", "cmdlongdesc"}, 
+				new int[] {R.id.cmdname, R.id.synopsis, R.id.ldescription});
 		recyclerView.setAdapter(adapter);
 		
 		return recyclerView;
