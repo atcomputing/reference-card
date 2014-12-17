@@ -47,13 +47,15 @@ public class CommandFragment extends Fragment implements OnItemClickListener {
 
 			HashMap<String, String> map = new HashMap<String, String>();
 
-			map.put("cmdname", cmdTab[0]);
-			map.put("cmddesc", cmdTab[1]);
+			String cmdname = cmdTab[0];
+			String cmddesc = cmdTab[1];
+			map.put("cmdname", cmdname);
+			map.put("cmddesc", cmddesc);
 			
 			int nparts          = cmdTab.length;
 			String synops = nparts >= 3 ? cmdTab[2] : "";
 			String ldescr = nparts >= 4 ? cmdTab[3] : null;
-			map.put("cmdsynops", synops);
+			map.put("cmdsynops", cmdname + " " +synops);
 			map.put("cmdlongdesc", ldescr);
 			
 			mylist.add(map);
@@ -62,9 +64,9 @@ public class CommandFragment extends Fragment implements OnItemClickListener {
 		this.adapter = new ExpandableMapAdapter<String>(mylist, R.layout.cmdrow,
 				new String[] {"cmdname", "cmddesc"},
 				new int[]    {R.id.cmdname, R.id.cmddesc}, this);
-		this.adapter.setExpansion(mylist, R.id.expansion, 
-				new String[] {"cmdname", "cmdsynops", "cmdlongdesc"}, 
-				new int[] {R.id.cmdname, R.id.synopsis, R.id.ldescription});
+		this.adapter.setExpansion(mylist, R.id.expansion, R.layout.cmddescr, 
+				new String[] {"cmdsynops", "cmdlongdesc"}, 
+				new int[] {R.id.synopsis, R.id.ldescription});
 		recyclerView.setAdapter(adapter);
 		
 		return recyclerView;

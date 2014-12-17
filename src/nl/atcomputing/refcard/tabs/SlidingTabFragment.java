@@ -28,13 +28,11 @@ public class SlidingTabFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.slidingtabfragment, container, false);
+		return inflater.inflate(R.layout.slidingtab_fragment, container, false);
 	}
 
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
-		Log.d("SlidingTabFragment", "onViewCreated");
-		
 		mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
 		mViewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
 		
@@ -42,6 +40,7 @@ public class SlidingTabFragment extends Fragment {
 		mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.atbluedark));
 		mSlidingTabLayout.setDividerColors(getResources().getColor(R.color.atbluedark));
 		mSlidingTabLayout.setBackgroundColor(getResources().getColor(R.color.atbluelight));
+		mSlidingTabLayout.setCustomTabView(R.layout.slidingtab_tabview, R.id.textview);
 		mSlidingTabLayout.setViewPager(mViewPager);
 	}
 	
@@ -59,7 +58,6 @@ public class SlidingTabFragment extends Fragment {
 
 		@Override
 		public Fragment getItem(int position) {
-			Log.d("SlidingTabFragment", "getItem: position="+position);
 			switch (position) {
 			case 0:
 				return new CommandFragment();

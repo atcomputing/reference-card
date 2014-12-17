@@ -1,6 +1,7 @@
 package nl.atcomputing.refcard;
 
 import nl.atcomputing.refcard.tabs.SlidingTabFragment;
+import nl.atcomputing.refcard.tabs.SlidingTabLayout;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;

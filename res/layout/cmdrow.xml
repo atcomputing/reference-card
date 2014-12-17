@@ -31,9 +31,10 @@
                     style="@style/RowItem.DescText" />
             </LinearLayout>
 
-            <include
-                android:id="@+id/expansion"
-                layout="@layout/cmddescr" />
+            <FrameLayout android:id="@+id/expansion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            
         </LinearLayout>
 
 </LinearLayout>

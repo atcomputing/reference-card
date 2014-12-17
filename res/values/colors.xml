@@ -1,8 +1,12 @@
 <resources>
     <!-- base color names -->
-    <color name="atwhite">#FFFFFF</color>
     <color name="atblack">#000000</color>
     <color name="atblue">#007FFF</color>
     <color name="atbluedark">#0059b3</color>
     <color name="atbluelight">#4da5ff</color>
+    <color name="atwhite">#FFFFFFFF</color>
+    <color name="atwhite_dividers">#1FFFFFFF</color>
+    <color name="atwhite_disabled">#4DFFFFFF</color>
+    <color name="atwhite_secondarytext">#B3FFFFFF</color>
+    <color name="atwhite_text">#FFFFFFFF</color>
 </resources>
