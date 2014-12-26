@@ -1,8 +1,6 @@
-.settings/
-.classpath
-.project
-build.properties
-bin/
-*~
-gen/
-META-INF/
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build

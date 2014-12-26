@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/martijn/AndroidstudioProjects/reference-card/splashScreen/src/main/res/values-sw720dp/dimens.xml -->
+    <eat-comment/>
+    <dimen name="rowItemWidth">143dp</dimen>
+    <dimen name="textSizeDescription">22dp</dimen>
+    <dimen name="textSizeExpList">19dp</dimen>
+    <dimen name="textSizeFlags">19dp</dimen>
+    <dimen name="textSizeRowItem">21dp</dimen>
+    <dimen name="textSizeSynopsis">19dp</dimen>
+    <dimen name="textSizeTab">19dp</dimen>
+</resources>

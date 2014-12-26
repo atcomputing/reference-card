@@ -1,0 +1,17 @@
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:paddingTop="4dp"
+     android:paddingBottom="6dp"
+     android:paddingLeft="5dp"
+     android:paddingRight="5dp"
+     android:clickable="false"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+ 
+     <TextView android:id="@+id/visubcom"
+        style="@style/RowItem.NameText" />
+ 
+     <TextView android:id="@+id/visubtext"
+        style="@style/RowItem.DescText" />
+</LinearLayout><!-- From: file:/home/martijn/AndroidstudioProjects/reference-card/splashScreen/src/main/res/layout/virow.xml -->
