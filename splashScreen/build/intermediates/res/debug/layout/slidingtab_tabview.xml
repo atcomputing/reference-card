@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/textview"
-    style="@style/TabView" >
-
-</TextView>
-<!-- From: file:/home/martijn/AndroidstudioProjects/reference-card/splashScreen/src/main/res/layout/slidingtab_tabview.xml -->

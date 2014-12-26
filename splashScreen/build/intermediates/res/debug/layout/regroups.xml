@@ -1,9 +1,0 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:cacheColorHint="@android:color/transparent" >
-
-    <TextView android:id="@+id/recategory"
-		 style="@style/GroupItem"/>
-</LinearLayout><!-- From: file:/home/martijn/AndroidstudioProjects/reference-card/splashScreen/src/main/res/layout/regroups.xml -->
