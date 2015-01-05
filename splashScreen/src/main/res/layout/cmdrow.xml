@@ -5,6 +5,7 @@
     android:orientation="vertical" >
 
         <LinearLayout
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -31,9 +32,13 @@
                     style="@style/RowItem.DescText" />
             </LinearLayout>
 
-            <FrameLayout android:id="@+id/expansion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <!--<FrameLayout android:id="@+id/expansion"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content" />-->
+
+            <include android:id="@+id/expansion"
+                layout="@layout/cmddescr"
+                android:visibility="gone"/>
             
         </LinearLayout>
 

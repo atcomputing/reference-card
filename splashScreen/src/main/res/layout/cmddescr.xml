@@ -1,46 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
- <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_view"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:stateListAnimator="@animator/raise"
-    card_view:cardCornerRadius="4dp"
-    card_view:cardElevation="@dimen/cmdDescrElevation" >
+    android:orientation="vertical" >
 
-    <LinearLayout
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:scrollbars="none" >
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none" >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:id="@+id/synopsis"
-                    style="@style/SynopsisText" />
-                
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:scrollbars="none" >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/ldescription"
-                style="@style/FlagsText" />
-            
-        </HorizontalScrollView>
-    </LinearLayout>
+                android:id="@+id/synopsis"
+                style="@style/SynopsisText" />
 
-</android.support.v7.widget.CardView>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:scrollbars="none" >
+
+        <TextView
+            android:id="@+id/ldescription"
+            style="@style/FlagsText" />
+
+    </HorizontalScrollView>
+</LinearLayout>
