@@ -3,20 +3,14 @@ package nl.atcomputing.refcard.recyclerview;
 import java.util.List;
 import java.util.Map;
 
-import android.animation.Animator;
-import android.animation.LayoutTransition;
-import android.animation.ObjectAnimator;
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import nl.atcomputing.refcard.R;
 
 public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapAdapter.ViewHolder> implements OnClickListener {
     private int resource;
@@ -29,7 +23,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
     private String[] expansionFrom;
     private int[] expansionTo;
 
-    private SparseBooleanArray expanded;
+    private SparseBooleanArray rowExpanded;
 
     public interface OnItemClickListener {
         public void onItemClicked(View v, int position);
@@ -58,6 +52,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
          */
         public void setExpansion(int resource, int[] to) {
             expansionView = rowView.findViewById(resource);
+            expansionView.setVisibility(View.GONE);
             expansionViews = new View[to.length];
             for(int i = 0; i < to.length; i++) {
                 expansionViews[i] = rowView.findViewById(to[i]);
@@ -77,7 +72,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         this.from = from;
         this.to = to;
         this.data = data;
-        this.expanded = new SparseBooleanArray();
+        this.rowExpanded = new SparseBooleanArray(data.size());
     }
 
     /**
@@ -108,22 +103,25 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder vh, int position) {
         Map<String, ?> item = this.data.get(position);
         for(int i = 0; i < from.length; i++) {
-            View v = holder.views[i];
+            View v = vh.views[i];
             if( v instanceof TextView ) {
                 ((TextView) v).setText(item.get(from[i]).toString());
             }
         }
 
-        if( this.expanded.get(position, false) ) {
-            showSynopsis(holder, position);
+        fillContentView(vh, position);
+
+        if( ! rowExpanded.get(position, false) ) {
+            ((LinearLayout.LayoutParams) vh.expansionView.getLayoutParams()).bottomMargin = -300;
+            vh.expansionView.setVisibility(View.GONE);
         } else {
-            hideSynopsis(holder);
+            vh.expansionView.setVisibility(View.VISIBLE);
         }
 
-        holder.itemView.setTag(holder);
+        vh.itemView.setTag(vh);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -138,16 +136,15 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         ViewHolder vh = (ViewHolder) v.getTag();
         int pos = vh.getPosition();
 
-        if( this.expanded.get(pos, false) ) {
-            this.expanded.put(pos, false);
-            hideSynopsis(vh);
-        } else {
-            this.expanded.put(pos, true);
-            showSynopsis(vh, pos);
+        if( vh.expansionView.getVisibility() != View.VISIBLE ) {
+            this.rowExpanded.put(pos, true);
         }
+
+        ExpandAnimation expandAni = new ExpandAnimation(vh.expansionView, 500);
+        vh.expansionView.startAnimation(expandAni);
     }
 
-    private void showSynopsis(ViewHolder vh, int pos) {
+    private void fillContentView(ViewHolder vh, int pos) {
         if( this.expansionData != null ) {
             Map<String, ?> expansionItems = this.expansionData.get(pos);
             for(int i = 0; i < this.expansionFrom.length; i++) {
@@ -157,18 +154,5 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
                 }
             }
         }
-
-        ExpandAnimation expandAni = new ExpandAnimation(vh.expansionView, 500);
-        vh.expansionView.startAnimation(expandAni);
-
-//		vh.expansionContainer.addView(vh.expansionView);
-    }
-
-    private void hideSynopsis(ViewHolder vh) {
-        ExpandAnimation expandAni = new ExpandAnimation(vh.expansionView, 500);
-        vh.expansionView.startAnimation(expandAni);
-
-//        vh.expansionContainer.removeView(vh.expansionView);
-
     }
 }
