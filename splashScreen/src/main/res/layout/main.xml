@@ -22,7 +22,7 @@
                 android:layout_marginTop="16dp"
                 style="@style/TitleText" />
 
-            <nl.atcomputing.refcard.activities.SlidingTabLayout
+            <nl.atcomputing.refcard.tabs.SlidingTabLayout
                 android:id="@+id/sliding_tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

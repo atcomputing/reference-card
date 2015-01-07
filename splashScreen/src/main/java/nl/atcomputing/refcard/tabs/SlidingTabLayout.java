@@ -1,4 +1,4 @@
-package nl.atcomputing.refcard.activities;
+package nl.atcomputing.refcard.tabs;
 
 import android.content.Context;
 import android.graphics.Typeface;

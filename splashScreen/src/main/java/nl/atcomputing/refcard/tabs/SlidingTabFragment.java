@@ -1,4 +1,4 @@
-package nl.atcomputing.refcard.activities;
+package nl.atcomputing.refcard.tabs;
 
 import nl.atcomputing.refcard.R;
 import nl.atcomputing.refcard.fragments.CommandFragment;
@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * TODO replace PagerAdapter with FragmentPagerAdapter https://github.com/codepath/android_guides/wiki/ViewPager-with-FragmentPagerAdapter
  * @author martijn
  *
  */

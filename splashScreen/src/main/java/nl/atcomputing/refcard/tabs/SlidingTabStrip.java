@@ -1,4 +1,4 @@
-package nl.atcomputing.refcard.activities;
+package nl.atcomputing.refcard.tabs;
 
 import nl.atcomputing.refcard.R;
 import android.content.Context;

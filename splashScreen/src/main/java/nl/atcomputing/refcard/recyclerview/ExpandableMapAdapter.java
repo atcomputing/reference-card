@@ -4,13 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapAdapter.ViewHolder> implements OnClickListener {
@@ -24,7 +22,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
     private String[] expansionFrom;
     private int[] expansionTo;
 
-    private SparseBooleanArray rowExpanded;
+    private SparseBooleanArray rowsExpanded;
 
     public interface OnItemClickListener {
         public void onItemClicked(View v, int position);
@@ -73,7 +71,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         this.from = from;
         this.to = to;
         this.data = data;
-        this.rowExpanded = new SparseBooleanArray(data.size());
+        this.rowsExpanded = new SparseBooleanArray(data.size());
     }
 
     /**
@@ -89,6 +87,14 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         this.expansionResource = resource;
         this.expansionFrom = from;
         this.expansionTo = to;
+    }
+
+    public void setRowsExpanded(SparseBooleanArray rowsExpanded) {
+        this.rowsExpanded = rowsExpanded;
+    }
+
+    public SparseBooleanArray getRowsExpanded() {
+        return rowsExpanded;
     }
 
     @Override
@@ -115,7 +121,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 
         fillContentView(vh, position);
 
-        if( rowExpanded.get(position, false) ) {
+        if( rowsExpanded.get(position, false) ) {
             ((ViewGroup.MarginLayoutParams) vh.expansionView.getLayoutParams()).bottomMargin = 0;
             vh.expansionView.setVisibility(View.VISIBLE);
         } else {
@@ -138,9 +144,9 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         ViewHolder vh = (ViewHolder) v.getTag();
         int pos = vh.getPosition();
 
-        boolean expand = ! rowExpanded.get(pos, false);
+        boolean expand = ! rowsExpanded.get(pos, false);
 
-        this.rowExpanded.put(pos, expand);
+        this.rowsExpanded.put(pos, expand);
 
         ExpandAnimation expandAni = new ExpandAnimation(vh.expansionView, 500, expand);
         vh.expansionView.startAnimation(expandAni);

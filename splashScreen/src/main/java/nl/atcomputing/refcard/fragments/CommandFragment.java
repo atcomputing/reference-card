@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +16,15 @@ import java.util.HashMap;
 import nl.atcomputing.refcard.R;
 import nl.atcomputing.refcard.recyclerview.DividerItemDecoration;
 import nl.atcomputing.refcard.recyclerview.ExpandableMapAdapter;
-import nl.atcomputing.refcard.recyclerview.ExpandableMapAdapter.OnItemClickListener;
+import nl.atcomputing.refcard.utils.SparseBooleanArrayParcelable;
 
 public class CommandFragment extends Fragment {
 
 	public static String getName() {
 		return "Command Reference";
 	}
+
+    private ExpandableMapAdapter mAdapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,15 +61,29 @@ public class CommandFragment extends Fragment {
 			mylist.add(map);
 		}
 
-		ExpandableMapAdapter adapter = new ExpandableMapAdapter(mylist, R.layout.cmdrow,
+		mAdapter = new ExpandableMapAdapter(mylist, R.layout.cmdrow,
 				new String[] {"cmdname", "cmddesc"},
 				new int[]    {R.id.cmdname, R.id.cmddesc});
-		adapter.setExpansion(mylist, R.id.expansion,
+        mAdapter.setExpansion(mylist, R.id.expansion,
 				new String[] {"cmdsynops", "cmdlongdesc"},
 				new int[] {R.id.synopsis, R.id.ldescription});
 
-       recyclerView.setAdapter(adapter);
+        if( savedInstanceState != null ) {
+            SparseBooleanArray sbArray = (SparseBooleanArray) savedInstanceState.getParcelable("key_rowsexpanded");
+            if( sbArray != null ) {
+                mAdapter.setRowsExpanded(sbArray);
+                Log.d("CommandFragment", "onCreateView: booleanArray=" + sbArray);
+            }
+        }
+
+       recyclerView.setAdapter(mAdapter);
 		
 		return recyclerView;
 	}
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        Log.d("CommandFragment", "onCreateView: booleanArray=" + mAdapter.getRowsExpanded());
+        outState.putParcelable("key_rowsexpanded", new SparseBooleanArrayParcelable(mAdapter.getRowsExpanded()));
+    }
 }

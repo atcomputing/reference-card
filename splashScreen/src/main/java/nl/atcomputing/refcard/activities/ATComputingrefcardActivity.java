@@ -1,9 +1,11 @@
-package nl.atcomputing.refcard;
+package nl.atcomputing.refcard.activities;
 
-import nl.atcomputing.refcard.activities.SlidingTabFragment;
+import nl.atcomputing.refcard.R;
+import nl.atcomputing.refcard.tabs.SlidingTabFragment;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -40,7 +42,12 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
 
 	}
 
-	@Override
+//    @Override
+//    public void onSaveInstanceState(Bundle outState) {
+//
+//    }
+
+    @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
