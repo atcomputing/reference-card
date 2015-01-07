@@ -1,4 +1,4 @@
-package nl.atcomputing.refcard.tabs;
+package nl.atcomputing.refcard.activities;
 
 import nl.atcomputing.refcard.R;
 import nl.atcomputing.refcard.fragments.CommandFragment;
