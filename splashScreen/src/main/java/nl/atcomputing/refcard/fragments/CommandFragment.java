@@ -72,7 +72,6 @@ public class CommandFragment extends Fragment {
             SparseBooleanArray sbArray = (SparseBooleanArray) savedInstanceState.getParcelable("key_rowsexpanded");
             if( sbArray != null ) {
                 mAdapter.setRowsExpanded(sbArray);
-                Log.d("CommandFragment", "onCreateView: booleanArray=" + sbArray);
             }
         }
 
@@ -83,7 +82,6 @@ public class CommandFragment extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        Log.d("CommandFragment", "onCreateView: booleanArray=" + mAdapter.getRowsExpanded());
         outState.putParcelable("key_rowsexpanded", new SparseBooleanArrayParcelable(mAdapter.getRowsExpanded()));
     }
 }

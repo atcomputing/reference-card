@@ -118,6 +118,7 @@
         <item>who!Who is on the system![−bHqrT]\nwho am i!−b = print date/time of last reboot\n−H = print column headings\n−q = print names only\n−r = print current run level\n−T = read/write state of terminal</item>
         <item>write!Write to another user!user [tty]</item>
         <item>xargs!Construct arglist and execute command![−l linecnt] [−n argcnt] [−ip] [cmd [init-args]]!−i = replace {} in init-args by path name\n−l = linecnt input lines per command\n−n = argcnt input args per command\n−p = prompt for confirmation before execute</item>
+        <item>xz!Compress data![-cdkl0123456789] [file]...!−c = send output to stdout\n−d = decompress\n−k = keep original file\n−[0-9] = compression level (0=modest, 9=optimal)</item>
         <item>zcat!Show compressed files![−f] [file]...!−f = force decompression</item>
         <item>zgrep!Search regexp in compressed data![−bchilnqsv] regexp [file]...!−b = show byte number\n−c = show only count of matching lines\n−e = next argument is regexp\n−h = suppress file names in output\n−i = ignore upper/lower case distinction\n−l = list names of files with matching lines\n−n = show line number for matching lines\n−q = quit (no output to stdout)\n−s = suppress error messages\n−v = show all lines except those that match\n\nSee separate TAB for regular expressions</item>
         <item>zip!Package and compress files![zipfile [file...]]</item>

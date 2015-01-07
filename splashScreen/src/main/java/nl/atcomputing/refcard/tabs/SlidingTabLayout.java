@@ -6,6 +6,7 @@ import android.os.Build;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -186,6 +187,8 @@ public class SlidingTabLayout extends HorizontalScrollView {
         for (int i = 0; i < adapter.getCount(); i++) {
             View tabView = null;
             TextView tabTitleView = null;
+
+            Log.d("SlidingTabLayout", "populateTabStrip: mTabViewLayoutId="+mTabViewLayoutId);
 
             if (mTabViewLayoutId != 0) {
                 // If there is a custom tab view layout id set, try and inflate it
