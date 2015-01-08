@@ -32,14 +32,13 @@ public class RegExpFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.regexpfragment, container, false);
+		return inflater.inflate(R.layout.regexp_vi_fragment, container, false);
 	}
 
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		ExpandableListView lv = (ExpandableListView) getView().findViewById(R.id.listview);
-
 
 		// obtain the basic and extended regexp_array
 		regexpb = getResources().getStringArray(R.array.regexpb_array);

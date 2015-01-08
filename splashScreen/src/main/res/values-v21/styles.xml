@@ -5,7 +5,7 @@
         <item name="android:colorPrimary">@color/atblue</item>
         <item name="android:colorPrimaryDark">@color/atbluedark</item>
         <item name="android:colorAccent">@color/atbluelight</item>
-        <item name="android:textColorPrimary">@color/atwhite</item>
+        <item name="android:textColorPrimary">@color/atbluedark</item>
         <item name="android:textColor">@color/atblue</item>
         <item name="android:navigationBarColor">@color/atbluelight</item>
     </style>
