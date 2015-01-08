@@ -1,8 +1,13 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <style name="AppTheme" parent="AppBaseTheme" >
+    <!-- Base application theme.
+         Defining this lets values-v21/styles.xml reuse it with changes. -->
+    </style>
+
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
-        <!-- <item name="windowActionBar">false</item> -->
+         <item name="windowActionBar">false</item>
 
 
         <!-- colorPrimary is used for the default action bar background -->
@@ -16,7 +21,11 @@
          which is used to tint widgets
         -->
         <item name="colorAccent">@color/atbluelight</item>
-        
+
+        <item name="android:textColorSecondary">@color/atwhite_secondarytext</item>
+
+        <item name="android:textColorPrimary">@color/atwhite</item>
+
     </style>
 
     <style name="TitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">

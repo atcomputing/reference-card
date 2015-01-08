@@ -34,12 +34,14 @@ public class SlidingTabFragment extends Fragment {
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
 		mViewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
-		
+
 		mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
 		mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.atbluedark));
 		mSlidingTabLayout.setDividerColors(getResources().getColor(R.color.atbluedark));
 		mSlidingTabLayout.setBackgroundColor(getResources().getColor(R.color.atbluelight));
-		mSlidingTabLayout.setCustomTabView(R.layout.slidingtab_tabview, R.id.textview);
+        //Does not work in landscape mode
+//		mSlidingTabLayout.setCustomTabView(R.layout.slidingtab_tabview, R.id.textview);
+
 		mSlidingTabLayout.setViewPager(mViewPager);
 	}
 	

@@ -7,6 +7,6 @@
     <color name="atwhite">#FFFFFFFF</color>
     <color name="atwhite_dividers">#1FFFFFFF</color>
     <color name="atwhite_disabled">#4DFFFFFF</color>
-    <color name="atwhite_secondarytext">#B3FFFFFF</color>
+    <color name="atwhite_secondarytext">#C3FFFFFF</color>
     <color name="atwhite_text">#FFFFFFFF</color>
 </resources>

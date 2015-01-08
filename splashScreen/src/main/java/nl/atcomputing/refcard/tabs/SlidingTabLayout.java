@@ -1,18 +1,20 @@
 package nl.atcomputing.refcard.tabs;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
+
+import nl.atcomputing.refcard.R;
 
 /**
  * To be used with ViewPager to provide a tab indicator component which give constant feedback as to
@@ -155,10 +157,12 @@ public class SlidingTabLayout extends HorizontalScrollView {
      * {@link #setCustomTabView(int, int)}.
      */
     protected TextView createDefaultTabView(Context context) {
+        Resources resources = getResources();
         TextView textView = new TextView(context);
         textView.setGravity(Gravity.CENTER);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, TAB_VIEW_TEXT_SIZE_SP);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.textSizeTab));
         textView.setTypeface(Typeface.DEFAULT_BOLD);
+        textView.setTextColor(resources.getColor(R.color.atwhite_secondarytext));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // If we're running on Honeycomb or newer, then we can use the Theme's
@@ -174,7 +178,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
 //            textView.setAllCaps(true);
 //        }
 
-        int padding = (int) (TAB_VIEW_PADDING_DIPS * getResources().getDisplayMetrics().density);
+        int padding = (int) (TAB_VIEW_PADDING_DIPS * resources.getDisplayMetrics().density);
         textView.setPadding(padding, padding, padding, padding);
 
         return textView;
@@ -187,8 +191,6 @@ public class SlidingTabLayout extends HorizontalScrollView {
         for (int i = 0; i < adapter.getCount(); i++) {
             View tabView = null;
             TextView tabTitleView = null;
-
-            Log.d("SlidingTabLayout", "populateTabStrip: mTabViewLayoutId="+mTabViewLayoutId);
 
             if (mTabViewLayoutId != 0) {
                 // If there is a custom tab view layout id set, try and inflate it
