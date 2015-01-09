@@ -9,6 +9,10 @@
 
          <item name="windowActionBar">false</item>
 
+        <!-- This should fix issue with toolbar title being smaller in landscape mode
+         see: http://stackoverflow.com/questions/10890159/android-actionbarsherlock-is-there-any-way-to-keep-the-same-actionbar-height-b
+        -->
+        <item name="actionBarSize">48dip</item>
 
         <!-- colorPrimary is used for the default action bar background -->
         <item name="colorPrimary">@color/atblue</item>
