@@ -1,4 +1,5 @@
 <resources>
+    <dimen name="textPadding">11sp</dimen>
     <dimen name="textSizeDescription">20sp</dimen>
     <dimen name="textSizeTab">18sp</dimen>
     <dimen name="textSizeRowItem">19sp</dimen>
@@ -6,4 +7,5 @@
     <dimen name="textSizeFlags">18sp</dimen>
     <dimen name="textSizeExpList">18sp</dimen>
     <dimen name="rowItemWidth">132dp</dimen>
+    <dimen name="iconSize">90dp</dimen>
 </resources>

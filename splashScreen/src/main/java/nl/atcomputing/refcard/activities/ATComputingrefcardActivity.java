@@ -59,29 +59,13 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // determine what happens when one of the menu button is pressed
         switch (item.getItemId()) {
-            case R.id.about_atc:
-                showAbout(R.string.atcomp, getResources().getString(R.string.explain_atc));
-                break;
-            case R.id.about_refcard:
-                showAbout(R.string.atref, getResources().getString(R.string.explain_ref));
+            case R.id.about:
+                AboutDialogFragment fragment = new AboutDialogFragment();
+                fragment.show(getSupportFragmentManager(), null);
                 break;
             default:
                 return super.onContextItemSelected(item);
         }
         return true;
-    }
-
-    private void showAbout(int title, CharSequence body) {
-        // When clicked, show the description of the flags
-
-        
-        AlertDialog.Builder box = new AlertDialog.Builder(this);
-        box.setInverseBackgroundForced(true);
-        box.setIcon(R.drawable.at);
-        box.setTitle(title);
-        box.setMessage(body);
-        box.setCancelable(false);
-        box.setNeutralButton(R.string.confirm_ok, null);
-        box.show();
     }
 }

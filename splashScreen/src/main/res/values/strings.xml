@@ -4,23 +4,26 @@
     <string name="app_name">Linux Reference Card</string>
     <string name="confirm_ok">OK</string>
     <string name="flag_title">Synopsis of:</string>
+    <string name="Copyright">© Copyright AT Computing 2011-2014</string>
 
-    <string name="about_ref">About reference</string>
-    <string name="about_atc">About AT Computing</string>
-    <string name="explain_ref">Version 1.0\n\nThis reference is intended for starting and experienced Linux users. It contains the name, synopsis and a short description of frequently used commands, frequently used vim subcommands and regular expression notation.\nNot all (sub)commands are listed.\n\n(c) Copyright 2012 AT Computing</string>
-    <string name="explain_atc">AT Computing is a team of specialized educators and solution providers in the field of Linux, UNIX and programming: your one-stop shop for Linux and UNIX knowledge transfer.\n\nEmail: info@atcomputing.nl\nWebsite: www.atcomputing.nl</string>
-
+    <string name="about">About</string>
+    <string name="explain_ref">This reference contains a list of frequently used commands, vim subcommands, and regular expression notation.</string>
+    <string name="explain_atc">AT Computing is a team of specialized educators and
+		consultants in Linux, Open Source, UNIX and programming languages.</string>
+    <string name="Visit_atcomputing">Visit http://www.atcomputing.nl</string>
+    <string name="Version">Version</string>
+    <string name="unknown">Unknown</string>
     <string name="label_cmdref">Command\nReference</string>
     <string name="label_viref">Vim\nReference</string>
     <string name="label_regexp">Regular\nExpressions</string>
 
     <string name="empty_list"></string>
-    
+
     <string name="vi_move">Movement subcommands</string>
     <string name="vi_input">Input subcommands</string>
     <string name="vi_edit">Edit subcommands</string>
     <string name="vi_file">File and quit subcommands</string>
-    
+
     <string name="re_basic">POSIX basic expressions – BRE</string>
     <string name="re_extended">POSIX extended expressions – ERE\nAdditions/deviations to BRE</string>
     <string name="re_perl">Perl regular expressions – PCRE\nAdditions to ERE</string>

@@ -103,4 +103,24 @@
         <item name="android:textSize">@dimen/textSizeExpList</item>
     </style>
 
+    <style name="Dialog">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/atwhite</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">@dimen/textPadding</item>
+    </style>
+
+    <style name="Dialog.Icon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/iconSize</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="Dialog.Message">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textSizeDescription</item>
+        <item name="android:textColor">@color/atblue</item>
+    </style>
 </resources>

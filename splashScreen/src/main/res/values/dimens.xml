@@ -1,4 +1,5 @@
 <resources>
+    <dimen name="textPadding">9sp</dimen>
     <dimen name="textSizeDescription">17sp</dimen>
     <dimen name="textSizeTab">15sp</dimen>
     <dimen name="textSizeRowItem">16sp</dimen>
@@ -6,6 +7,5 @@
     <dimen name="textSizeFlags">15sp</dimen>
     <dimen name="textSizeExpList">15sp</dimen>
     <dimen name="rowItemWidth">110dp</dimen>
-    <dimen name="touchRaise">20dp</dimen>
-    <dimen name="cmdDescrElevation">2dp</dimen>
+    <dimen name="iconSize">75dp</dimen>
 </resources>
