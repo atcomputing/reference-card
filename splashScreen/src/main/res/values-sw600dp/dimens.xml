@@ -1,5 +1,6 @@
 <resources>
     <dimen name="textPadding">11sp</dimen>
+    <dimen name="textSizeTitle">21sp</dimen>
     <dimen name="textSizeDescription">20sp</dimen>
     <dimen name="textSizeTab">18sp</dimen>
     <dimen name="textSizeRowItem">19sp</dimen>
