@@ -1,4 +1,4 @@
-package nl.atcomputing.refcard;
+package nl.atcomputing.refcard.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -12,6 +12,8 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MotionEvent;
 
+import nl.atcomputing.refcard.R;
+
 public class SplashScreen extends Activity {	
 	protected int _splashTime = 2000; 	// in milliseconds
 	private Thread splashTread;
@@ -21,29 +23,13 @@ public class SplashScreen extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.splash);
+	    setContentView(R.layout.splashscreen);
+        int res = newVersion();
+        if( res == -1 ) {
+            //show animation
 
-        if( newVersion() != 1 ) {
-
-            final SplashScreen sPlashScreen = this;
-
-            // thread for displaying the SplashScreen
-            splashTread = new Thread() {
-                @Override
-                public void run() {
-                    try {
-                        synchronized (this) {
-                            wait(_splashTime);
-                        }
-
-                    } catch (InterruptedException e) {
-                    } finally {
-                        startMainActivity();
-                    }
-                }
-            };
-
-            splashTread.start();
+        } else if ( res == 0 ) {
+            startMainActivity();
         }
 	}
 
@@ -94,7 +80,7 @@ public class SplashScreen extends Activity {
     private boolean handleUpgrade(int currentVersion, int lastVersionCode) {
         StringBuilder changelog = new StringBuilder();
         switch (lastVersionCode) {
-            case 8:
+            case 9:
                 changelog.append("Added command description for sudo\n");
                 changelog.append("Added command description for systemctl\n");
                 changelog.append("Added command description for xz\n");
@@ -104,7 +90,6 @@ public class SplashScreen extends Activity {
 
         if( changelog.length() > 0 ) {
             AlertDialog.Builder box = new AlertDialog.Builder(this);
-            box.setIcon(R.drawable.at);
             box.setTitle("New in Linux Reference Card");
             box.setMessage(changelog.toString());
             box.setCancelable(false);
