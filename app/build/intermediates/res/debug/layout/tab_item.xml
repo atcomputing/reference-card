@@ -1,0 +1,9 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="3dp"
+    android:textStyle="bold"
+    android:textSize="@dimen/textSizeTab"
+    android:gravity="center"
+	android:background="@drawable/tab_bg"
+    android:textColor="@color/tab_text" /><!-- From: file:/home/martijn/projects/software/Android/reference-card1/app/src/main/res/layout/tab_item.xml -->

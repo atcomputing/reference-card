@@ -1,0 +1,28 @@
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:paddingTop="6dp"
+     android:paddingBottom="6dp"
+     android:paddingLeft="2dp"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+ 
+     <TextView android:id="@+id/cmdname"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+    	android:textStyle="bold"
+    	android:textSize="@dimen/textSizeRowItem"
+    	android:bufferType="spannable"
+    	android:typeface="monospace"
+    	android:textColor ="@color/listcolumn1" />
+ 
+     <TextView android:id="@+id/cmddesc"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+    	android:textStyle="normal"
+    	android:textSize="@dimen/textSizeRowItem"
+    	android:bufferType="spannable"
+    	android:textColor ="@color/listcolumn2" />
+</LinearLayout><!-- From: file:/home/martijn/projects/software/Android/reference-card1/app/src/main/res/layout/cmdrow.xml -->
