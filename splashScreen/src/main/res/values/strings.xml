@@ -28,4 +28,5 @@
     <string name="re_extended">POSIX extended expressions – ERE\nAdditions/deviations to BRE</string>
     <string name="re_perl">Perl regular expressions – PCRE\nAdditions to ERE</string>
     <string name="at_computing_logo">AT Computing Logo</string>
+    <string name="new_in_linux_reference_card">New in Linux Reference Card</string>
 </resources>

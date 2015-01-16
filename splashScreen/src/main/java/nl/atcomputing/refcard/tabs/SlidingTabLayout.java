@@ -160,7 +160,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         Resources resources = getResources();
         TextView textView = new TextView(context);
         textView.setGravity(Gravity.CENTER);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.textSizeTab));
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.textSizeSmall));
         textView.setTypeface(Typeface.DEFAULT_BOLD);
         textView.setTextColor(resources.getColor(R.color.atwhite_secondarytext));
 

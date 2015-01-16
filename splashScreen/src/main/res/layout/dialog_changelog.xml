@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/Dialog">
+
+    <ImageView
+        android:src="@drawable/atlogo"
+        style="@style/Dialog.Icon"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:text="@string/new_in_linux_reference_card"
+        style="@style/Dialog.Title" />
+
+
+    <ScrollView
+        android:layout_height="0px"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        >
+        <LinearLayout
+            style="@style/Dialog.Changelog"
+            android:id="@+id/changelogentries"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        style="@style/Dialog.Copyright"
+        android:text="@string/Copyright" >
+    </TextView>
+
+    <TextView
+        style="@style/Dialog.Copyright"
+        android:autoLink="web"
+        android:text="@string/Visit_atcomputing" >
+    </TextView>
+</LinearLayout>

@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/message"
             android:text="@string/explain_ref"
-            style="@style/Dialog.Message" />
+            style="@style/Dialog" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -23,22 +23,22 @@
 
             <TextView
                 android:text="@string/Version"
-                style="@style/Dialog.Message" >
+                style="@style/Dialog.Copyright" >
             </TextView>
 
             <TextView
                 android:id="@+id/about_version_number"
-                style="@style/Dialog.Message" >
+                style="@style/Dialog.Copyright" >
             </TextView>
         </LinearLayout>
 
         <TextView
-            style="@style/Dialog.Message"
+            style="@style/Dialog.Copyright"
             android:text="@string/Copyright" >
         </TextView>
 
         <TextView
-            style="@style/Dialog.Message"
+            style="@style/Dialog.Copyright"
             android:autoLink="web"
             android:text="@string/Visit_atcomputing" >
         </TextView>

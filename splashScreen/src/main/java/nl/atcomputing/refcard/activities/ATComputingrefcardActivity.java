@@ -1,24 +1,33 @@
 package nl.atcomputing.refcard.activities;
 
-import android.app.AlertDialog;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import nl.atcomputing.refcard.R;
 import nl.atcomputing.refcard.fragments.AboutDialogFragment;
+import nl.atcomputing.refcard.fragments.ChangelogDialogFragment;
 import nl.atcomputing.refcard.tabs.SlidingTabFragment;
 
 public class ATComputingrefcardActivity extends ActionBarActivity {
-    /** Called when the activity is first created. */
+    private static final String KEY_APP_VERSION = "key_app_version";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        Log.d("ATComputingrefcardActivity", "onCreate:");
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -32,6 +41,8 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
             transaction.replace(R.id.fragment, fragment);
             transaction.commit();
         }
+
+        newVersion();
     }
 
     /**
@@ -42,11 +53,6 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
     protected void onRestoreInstanceState(Bundle state) {
 
     }
-
-//    @Override
-//    public void onSaveInstanceState(Bundle outState) {
-//
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,5 +73,45 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
                 return super.onContextItemSelected(item);
         }
         return true;
+    }
+
+    private void newVersion() {
+        PackageInfo pInfo;
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            int currentVersionCode = pInfo.versionCode;
+
+           // Update version in preferences
+            sharedPreferences.edit()
+                    .putInt(KEY_APP_VERSION, currentVersionCode).commit();
+
+            int lastVersionCode = sharedPreferences
+                    .getInt(KEY_APP_VERSION, -1);
+            if( lastVersionCode == -1 ) {
+                return;
+            }
+
+            if( currentVersionCode > lastVersionCode ) {
+                handleUpgrade(lastVersionCode);
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.w("SplashScreen",
+                    "Unable to determine current app version.");
+        }
+    }
+
+    private void handleUpgrade(int lastVersionCode) {
+        ChangelogDialogFragment fragment = new ChangelogDialogFragment();
+        switch (lastVersionCode) {
+            case 9:
+                fragment.addChangelogEntry("Command descriptions for sudo, systemctl, and xz\n");
+                fragment.addChangelogEntry("Material design\n");
+        }
+
+        if( fragment.getChangelog().size() > 0 ) {
+            fragment.show(getSupportFragmentManager(), null);
+        }
     }
 }

@@ -34,16 +34,16 @@
 
     <style name="TitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
     	    <item name="android:textColor">@color/atwhite</item>
-            <item name="android:textSize">@dimen/textSizeTitle</item>
+            <item name="android:textSize">@dimen/textSizeHuge</item>
     </style>
     
     <style name="TabView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">@dimen/textSizeTab</item>
+        <item name="android:padding">@dimen/textSizeSmall</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/atwhite_secondarytext</item>
-        <item name="android:textSize">@dimen/textSizeTab</item>
+        <item name="android:textSize">@dimen/textSizeSmall</item>
         <item name="android:gravity">center</item>
     </style>
     
@@ -51,7 +51,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:textColor">@color/atblue</item>
-        <item name="android:textSize">@dimen/textSizeDescription</item>
+        <item name="android:textSize">@dimen/textSizeLarge</item>
         <item name="android:padding">2dp</item>
     </style>
 
@@ -59,7 +59,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:textColor">@color/atbluedark</item>
-        <item name="android:textSize">@dimen/textSizeSynopsis</item>
+        <item name="android:textSize">@dimen/textSizeSmall</item>
         <item name="android:padding">2dp</item>
         <item name="android:typeface">monospace</item>
     </style>
@@ -68,14 +68,14 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:textColor">@color/atbluedark</item>
-        <item name="android:textSize">@dimen/textSizeFlags</item>
+        <item name="android:textSize">@dimen/textSizeSmall</item>
         <item name="android:padding">2dp</item>
     </style>
 
     <style name="RowItem">
         <item name="android:layout_width">@dimen/rowItemWidth</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/textSizeRowItem</item>
+        <item name="android:textSize">@dimen/textSizeNormal</item>
         <item name="android:padding">2dp</item>
     </style>
 
@@ -99,7 +99,7 @@
         <item name="android:textColor">@color/atbluedark</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:textSize">@dimen/textSizeExpList</item>
+        <item name="android:textSize">@dimen/textSizeSmall</item>
     </style>
 
     <style name="Dialog">
@@ -107,19 +107,35 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/atwhite</item>
         <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/atbluedark</item>
+        <item name="android:textSize">@dimen/textSizeLarge</item>
         <item name="android:padding">@dimen/textPadding</item>
     </style>
 
     <style name="Dialog.Icon">
-        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/iconSize</item>
         <item name="android:scaleType">fitCenter</item>
     </style>
 
-    <style name="Dialog.Message">
+    <style name="Dialog.Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Dialog.Copyright">
+        <item name="android:textSize">@dimen/textSizeSmall</item>
+        <item name="android:textColor">@color/atbluelight</item>
+    </style>
+
+    <style name="Dialog.Changelog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="ChangelogEntry">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/textSizeDescription</item>
-        <item name="android:textColor">@color/atblue</item>
+        <item name="android:paddingLeft">@dimen/textPadding</item>
+        <item name="android:textColor">@color/atbluedark</item>
+        <item name="android:textSize">@dimen/textSizeLarge</item>
     </style>
 </resources>

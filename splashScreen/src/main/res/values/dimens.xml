@@ -1,12 +1,9 @@
 <resources>
     <dimen name="textPadding">9sp</dimen>
-    <dimen name="textSizeTitle">18sp</dimen>
-    <dimen name="textSizeDescription">17sp</dimen>
-    <dimen name="textSizeTab">15sp</dimen>
-    <dimen name="textSizeRowItem">16sp</dimen>
-    <dimen name="textSizeSynopsis">15sp</dimen>
-    <dimen name="textSizeFlags">15sp</dimen>
-    <dimen name="textSizeExpList">15sp</dimen>
+    <dimen name="textSizeHuge">18sp</dimen>
+    <dimen name="textSizeLarge">17sp</dimen>
+    <dimen name="textSizeNormal">16sp</dimen>
+    <dimen name="textSizeSmall">15sp</dimen>
     <dimen name="rowItemWidth">110dp</dimen>
     <dimen name="iconSize">75dp</dimen>
 </resources>
