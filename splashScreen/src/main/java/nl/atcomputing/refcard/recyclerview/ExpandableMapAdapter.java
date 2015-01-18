@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -147,6 +148,8 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         boolean expand = ! rowsExpanded.get(pos, false);
 
         this.rowsExpanded.put(pos, expand);
+
+        Log.d("ExpandableMapAdapter", "onClick: " + ((ViewGroup.MarginLayoutParams) vh.expansionView.getLayoutParams()).bottomMargin);
 
         ExpandAnimation expandAni = new ExpandAnimation(vh.expansionView, 500, expand);
         vh.expansionView.startAnimation(expandAni);
