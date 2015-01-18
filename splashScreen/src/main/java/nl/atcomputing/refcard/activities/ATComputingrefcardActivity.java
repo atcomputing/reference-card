@@ -26,12 +26,8 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        Log.d("ATComputingrefcardActivity", "onCreate:");
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         //Fragments are saved by the FragmentManager during rotation. So we do not need
         //to recreated it when the device rotates
@@ -92,6 +88,8 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
             if( lastVersionCode == -1 ) {
                 return;
             }
+
+            handleUpgrade(9);
 
             if( currentVersionCode > lastVersionCode ) {
                 handleUpgrade(lastVersionCode);
