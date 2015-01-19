@@ -3,13 +3,18 @@ package nl.atcomputing.refcard.recyclerview;
 import java.util.List;
 import java.util.Map;
 
+import android.content.Context;
+import android.os.Build;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.SparseBooleanArray;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -18,6 +23,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
     private String[] from;
     private int[] to;
     private List<? extends Map<String, ?>> data;
+    private float showElevation;
 
     private List<? extends Map<String, ?>> expansionData;
     private int expansionResource;
@@ -68,12 +74,15 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
      * @param from array holding the keys as used in the map. Make sure the order of keys correspond with the order of the resource identifiers in <code>int[] to</code>
      * @param to array holding the resource identifiers in the layout given by <code>int resource</code>
      */
-    public ExpandableMapAdapter(List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
+    public ExpandableMapAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
         this.resource = resource;
         this.from = from;
         this.to = to;
         this.data = data;
         this.rowsExpanded = new SparseBooleanArray(data.size());
+
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        this.showElevation = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, metrics);
     }
 
     /**
@@ -153,7 +162,15 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 
         if( expand ) {
             vh.expansionView.setVisibility(View.VISIBLE);
-            ViewCompat.setElevation(vh.rowView, 10);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                ViewAnimationUtils.createCircularReveal(vh.expansionView,
+                        vh.rowView.getWidth() / 2,
+                        0,
+                        0,
+                        vh.rowView.getWidth()).start();
+            } else {
+                ViewCompat.setElevation(vh.rowView, this.showElevation);
+            }
         } else {
             vh.expansionView.setVisibility(View.GONE);
             ViewCompat.setElevation(vh.rowView, 0);

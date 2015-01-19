@@ -61,7 +61,7 @@ public class CommandFragment extends Fragment {
 			mylist.add(map);
 		}
 
-		mAdapter = new ExpandableMapAdapter(mylist, R.layout.cmdrow,
+		mAdapter = new ExpandableMapAdapter(getActivity(), mylist, R.layout.cmdrow,
 				new String[] {"cmdname", "cmddesc"},
 				new int[]    {R.id.cmdname, R.id.cmddesc});
         mAdapter.setExpansion(mylist, R.id.expansion,

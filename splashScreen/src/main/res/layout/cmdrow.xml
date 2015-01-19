@@ -5,7 +5,9 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     card_view:cardCornerRadius="4dp"
-    android:elevation="0dp">
+    android:elevation="0dp"
+    android:stateListAnimator="@anim/rowitem_elevation"
+    android:background="@color/atwhite">
     <LinearLayout
         android:id="@+id/title"
         android:layout_width="match_parent"
