@@ -3,6 +3,7 @@ package nl.atcomputing.refcard.recyclerview;
 import java.util.List;
 import java.util.Map;
 
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseBooleanArray;
@@ -123,11 +124,12 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         fillContentView(vh, position);
 
         if( rowsExpanded.get(position, false) ) {
-            ((ViewGroup.MarginLayoutParams) vh.expansionView.getLayoutParams()).bottomMargin = 0;
+//            ((ViewGroup.MarginLayoutParams) vh.expansionView.getLayoutParams()).bottomMargin = 0;
             vh.expansionView.setVisibility(View.VISIBLE);
         } else {
-            ((ViewGroup.MarginLayoutParams) vh.expansionView.getLayoutParams()).bottomMargin = -300;
+//            ((ViewGroup.MarginLayoutParams) vh.expansionView.getLayoutParams()).bottomMargin = -300;
             vh.expansionView.setVisibility(View.GONE);
+            ViewCompat.setElevation(vh.rowView, 0);
         }
 
         vh.itemView.setTag(vh);
@@ -149,10 +151,16 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 
         this.rowsExpanded.put(pos, expand);
 
-        Log.d("ExpandableMapAdapter", "onClick: " + ((ViewGroup.MarginLayoutParams) vh.expansionView.getLayoutParams()).bottomMargin);
+        if( expand ) {
+            vh.expansionView.setVisibility(View.VISIBLE);
+            ViewCompat.setElevation(vh.rowView, 10);
+        } else {
+            vh.expansionView.setVisibility(View.GONE);
+            ViewCompat.setElevation(vh.rowView, 0);
+        }
 
-        ExpandAnimation expandAni = new ExpandAnimation(vh.expansionView, 500, expand);
-        vh.expansionView.startAnimation(expandAni);
+//        ExpandAnimation expandAni = new ExpandAnimation(vh.expansionView, 500, expand);
+//        vh.expansionView.startAnimation(expandAni);
     }
 
     private void fillContentView(ViewHolder vh, int pos) {
