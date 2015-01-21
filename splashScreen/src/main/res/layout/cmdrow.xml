@@ -5,6 +5,9 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="0dp"
+    card_view:cardBackgroundColor="@color/atwhite"
+    card_view:cardUseCompatPadding="true"
     android:elevation="0dp"
     android:stateListAnimator="@anim/rowitem_elevation"
 
@@ -18,7 +21,7 @@
         android:paddingLeft="2dp"
         android:paddingRight="2dp"
         android:paddingTop="6dp"
-        android:background="@drawable/rowitem_selector_background">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +30,8 @@
             android:paddingBottom="6dp"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"
-            android:paddingTop="6dp">
+            android:paddingTop="6dp"
+            android:background="@drawable/rowitem_selector_background">
 
             <TextView
                 android:id="@+id/cmdname"
@@ -44,7 +48,8 @@
 
         <include android:id="@+id/expansion"
             layout="@layout/cmddescr"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            />
 
     </LinearLayout>
 </android.support.v7.widget.CardView>

@@ -6,6 +6,7 @@ import java.util.Map;
 import android.content.Context;
 import android.os.Build;
 import android.support.v4.view.ViewCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;

@@ -10,4 +10,22 @@
         <item name="android:navigationBarColor">@color/atbluelight</item>
     </style>
 
+    <style name="RowItem">
+        <item name="android:layout_width">@dimen/rowItemWidth</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textSizeNormal</item>
+        <item name="android:padding">2dp</item>
+    </style>
+
+    <style name="RowItem.NameText">
+        <item name="android:textColor">@color/rowitem_selector_textcolor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+
+    <style name="RowItem.DescText">
+        <item name="android:textColor">@color/rowitem_selector_textcolor</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>
