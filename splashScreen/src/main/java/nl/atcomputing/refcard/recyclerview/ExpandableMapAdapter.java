@@ -88,7 +88,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
     /**
      * Sets the data elements that should be shown when item is clicked
      * @param data
-     * @param resource identifier pointing to the ViewGroup in the layout set using {@link #ExpandableMapAdapter(List, int, String[], int[])}
+     * @param resource identifier pointing to the ViewGroup in the layout set using {@link #ExpandableMapAdapter(Context, List, int, String[], int[])}
      * where the expansion items should be added to
      * @param from array holding the keys as used in the map. Make sure the order of keys correspond with the order of the resource identifiers in <code>int[] to</code>
      * @param to array holding the resource identifiers in the layout given by <code>layout</code>
@@ -133,10 +133,8 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         fillContentView(vh, position);
 
         if( rowsExpanded.get(position, false) ) {
-//            ((ViewGroup.MarginLayoutParams) vh.expansionView.getLayoutParams()).bottomMargin = 0;
             vh.expansionView.setVisibility(View.VISIBLE);
         } else {
-//            ((ViewGroup.MarginLayoutParams) vh.expansionView.getLayoutParams()).bottomMargin = -300;
             vh.expansionView.setVisibility(View.GONE);
             ViewCompat.setElevation(vh.rowView, 0);
         }
