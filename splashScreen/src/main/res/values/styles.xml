@@ -1,28 +1,16 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="AppTheme" parent="AppBaseTheme" >
-    <!-- Base application theme.
-         Defining this lets values-v21/styles.xml reuse it with changes. -->
+        <!-- Base application theme.
+             Defining this lets values-v21/styles.xml reuse it with changes. -->
     </style>
 
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
-         <item name="windowActionBar">false</item>
-
-        <!-- colorPrimary is used for the default action bar background -->
+        <item name="windowActionBar">false</item>
         <item name="colorPrimary">@color/atblue</item>
-
-        <!-- colorPrimaryDark is used for the status bar -->
         <item name="colorPrimaryDark">@color/atbluedark</item>
-
-        <!--
-         colorAccent is used as the default value for colorControlActivated,
-         which is used to tint widgets
-        -->
         <item name="colorAccent">@color/atbluelight</item>
-
         <item name="android:textColorSecondary">@color/atwhite_secondarytext</item>
-
         <item name="android:textColorPrimary">@color/atwhite</item>
 
     </style>
@@ -33,10 +21,10 @@
 
 
     <style name="TitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-    	    <item name="android:textColor">@color/atwhite</item>
-            <item name="android:textSize">@dimen/textSizeHuge</item>
+        <item name="android:textColor">@color/atwhite</item>
+        <item name="android:textSize">@dimen/textSizeHuge</item>
     </style>
-    
+
     <style name="TabView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -46,7 +34,7 @@
         <item name="android:textSize">@dimen/textSizeSmall</item>
         <item name="android:gravity">center</item>
     </style>
-    
+
     <style name="DescriptionText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>

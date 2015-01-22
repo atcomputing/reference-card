@@ -19,6 +19,8 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import nl.atcomputing.refcard.R;
+
 public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapAdapter.ViewHolder> implements OnClickListener {
     private int resource;
     private String[] from;
@@ -82,8 +84,9 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         this.data = data;
         this.rowsExpanded = new SparseBooleanArray(data.size());
 
-        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        this.showElevation = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, metrics);
+//        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+//        this.showElevation = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, metrics);
+        this.showElevation = context.getResources().getDimension(R.dimen.cardselectedElevation);
     }
 
     /**
@@ -135,6 +138,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 
         if( rowsExpanded.get(position, false) ) {
             vh.expansionView.setVisibility(View.VISIBLE);
+            ViewCompat.setElevation(vh.rowView, this.showElevation);
         } else {
             vh.expansionView.setVisibility(View.GONE);
             ViewCompat.setElevation(vh.rowView, 0);
@@ -167,9 +171,8 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
                         0,
                         0,
                         vh.rowView.getWidth()).start();
-            } else {
-                ViewCompat.setElevation(vh.rowView, this.showElevation);
             }
+            ViewCompat.setElevation(vh.rowView, this.showElevation);
         } else {
             vh.expansionView.setVisibility(View.GONE);
             ViewCompat.setElevation(vh.rowView, 0);

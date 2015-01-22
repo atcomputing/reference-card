@@ -89,8 +89,6 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
                 return;
             }
 
-            handleUpgrade(9);
-
             if( currentVersionCode > lastVersionCode ) {
                 handleUpgrade(lastVersionCode);
             }
