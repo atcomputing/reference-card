@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 
+/**
+ * TODO fix highlighting http://stackoverflow.com/questions/10318642/highlight-for-selected-item-in-expandable-list
+ */
 public class RegExpFragment extends Fragment {
 	private String[] regexpb;
 	private String[] regexpe;
