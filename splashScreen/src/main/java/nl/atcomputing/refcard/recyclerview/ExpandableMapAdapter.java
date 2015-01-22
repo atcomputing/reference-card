@@ -44,6 +44,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         public View[] expansionViews;
         public View expansionView;
         public View rowView;
+        public CardView cardView;
 
         public ViewHolder(View v, int[] to, OnClickListener listener) {
             super(v);
@@ -61,6 +62,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
          * @param to resource identifiers in view v
          */
         public void setExpansion(int resource, int[] to) {
+            cardView = (CardView) rowView.findViewById(R.id.card_view);
             expansionView = rowView.findViewById(resource);
             expansionView.setVisibility(View.GONE);
             expansionViews = new View[to.length];
@@ -84,8 +86,6 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         this.data = data;
         this.rowsExpanded = new SparseBooleanArray(data.size());
 
-//        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-//        this.showElevation = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, metrics);
         this.showElevation = context.getResources().getDimension(R.dimen.cardselectedElevation);
     }
 
@@ -138,10 +138,10 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
 
         if( rowsExpanded.get(position, false) ) {
             vh.expansionView.setVisibility(View.VISIBLE);
-            ViewCompat.setElevation(vh.rowView, this.showElevation);
+            vh.cardView.setCardElevation(this.showElevation);
         } else {
             vh.expansionView.setVisibility(View.GONE);
-            ViewCompat.setElevation(vh.rowView, 0);
+            vh.cardView.setCardElevation(0);
         }
 
         vh.itemView.setTag(vh);
@@ -172,10 +172,10 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
                         0,
                         vh.rowView.getWidth()).start();
             }
-            ViewCompat.setElevation(vh.rowView, this.showElevation);
+            vh.cardView.setCardElevation(this.showElevation);
         } else {
             vh.expansionView.setVisibility(View.GONE);
-            ViewCompat.setElevation(vh.rowView, 0);
+            vh.cardView.setCardElevation(0);
         }
 
 //        ExpandAnimation expandAni = new ExpandAnimation(vh.expansionView, 500, expand);
