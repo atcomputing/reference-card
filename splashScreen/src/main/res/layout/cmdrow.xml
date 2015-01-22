@@ -10,7 +10,7 @@
     card_view:cardElevation="0dp"
     card_view:cardBackgroundColor="@color/atwhite"
     android:clickable="true"
-    android:foreground="@drawable/"
+    android:foreground="@drawable/rowitem_selector"
     >
     <LinearLayout
         android:id="@+id/title"

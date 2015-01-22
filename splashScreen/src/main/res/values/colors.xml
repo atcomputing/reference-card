@@ -10,5 +10,7 @@
     <color name="atwhite_disabled">#4DFFFFFF</color>
     <color name="atwhite_secondarytext">#C3FFFFFF</color>
     <color name="atwhite_text">#FFFFFFFF</color>
-
+    <color name="athighlight">#10007FFF</color>
+    <color name="atselect">#1F007FFF</color>
+    <color name="attransparant">#00000000</color>
 </resources>
