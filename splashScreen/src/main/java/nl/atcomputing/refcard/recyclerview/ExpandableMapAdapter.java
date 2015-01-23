@@ -1,23 +1,22 @@
 package nl.atcomputing.refcard.recyclerview;
 
-import java.util.List;
-import java.util.Map;
-
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.SparseBooleanArray;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.List;
+import java.util.Map;
 
 import nl.atcomputing.refcard.R;
 
@@ -32,6 +31,9 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
     private int expansionResource;
     private String[] expansionFrom;
     private int[] expansionTo;
+
+    private int colorathighlight;
+    private int coloratwhite;
 
     private SparseBooleanArray rowsExpanded;
 
@@ -49,7 +51,7 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         public ViewHolder(View v, int[] to, OnClickListener listener) {
             super(v);
             rowView = v;
-
+            rowView.setTag(this);
             v.setOnClickListener(listener);
             views = new View[to.length];
             for(int i = 0; i < to.length; i++) {
@@ -87,6 +89,9 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         this.rowsExpanded = new SparseBooleanArray(data.size());
 
         this.showElevation = context.getResources().getDimension(R.dimen.cardselectedElevation);
+
+        this.colorathighlight = context.getResources().getColor(R.color.athighlight);
+        this.coloratwhite = context.getResources().getColor(R.color.atwhite);
     }
 
     /**
@@ -139,9 +144,22 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
         if( rowsExpanded.get(position, false) ) {
             vh.expansionView.setVisibility(View.VISIBLE);
             vh.cardView.setCardElevation(this.showElevation);
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                //we highlight as elevation on older devices does not seem to work very well
+                Drawable d = vh.cardView.getBackground();
+                d.setColorFilter(this.colorathighlight, PorterDuff.Mode.MULTIPLY);
+            }
+
         } else {
             vh.expansionView.setVisibility(View.GONE);
             vh.cardView.setCardElevation(0);
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                // Remove highlight
+                Drawable d = vh.cardView.getBackground();
+                d.setColorFilter(this.coloratwhite, PorterDuff.Mode.MULTIPLY);
+            }
         }
 
         vh.itemView.setTag(vh);
@@ -171,15 +189,22 @@ public class ExpandableMapAdapter<T> extends RecyclerView.Adapter<ExpandableMapA
                         0,
                         0,
                         vh.rowView.getWidth()).start();
+            } else {
+                //we highlight as elevation on older devices does not seem to work very well
+                Drawable d = vh.cardView.getBackground();
+                d.setColorFilter(this.colorathighlight, PorterDuff.Mode.MULTIPLY);
             }
             vh.cardView.setCardElevation(this.showElevation);
         } else {
             vh.expansionView.setVisibility(View.GONE);
             vh.cardView.setCardElevation(0);
-        }
 
-//        ExpandAnimation expandAni = new ExpandAnimation(vh.expansionView, 500, expand);
-//        vh.expansionView.startAnimation(expandAni);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                // Remove highlight
+                Drawable d = vh.cardView.getBackground();
+                d.setColorFilter(this.coloratwhite, PorterDuff.Mode.MULTIPLY);
+            }
+        }
     }
 
     private void fillContentView(ViewHolder vh, int pos) {
