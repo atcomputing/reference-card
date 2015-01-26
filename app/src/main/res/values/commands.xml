@@ -89,6 +89,8 @@
         <item>strings!Printable strings in binary file![−a] [−o] [file]...!−a = examine complete file\n−o = precede each string by its offset in file</item>
         <item>stty!Get/set terminal settings![−ag] [settings]!−a = report all settings\n−g = report valid arguments</item>
         <item>su!Switch to another user![−] [username [arg...]]!− = change environment to login environment</item>
+        <item>sudo!execute a command as another user![-u user] [-s] [command]!-u user = run command as user\n-s = run command using a shell or start an interactive shell when no command is given</item>
+        <item>systemctl!Control the systemd system and service manager![option]... command [name]...!Commands\n\n\tget-default = default target to boot into\n\tset-default &lt;target&gt; = set default target to boot into\n\tlist-units = list known units\n\tisolate &lt;target&gt; = switch to target\n\tstart &lt;unit&gt;... = start one or more units\n\tstop &lt;unit&gt;... = stop on or more units\n\tenable &lt;unit&gt;... = add one or more units to the running target\n\tdisable &lt;unit&gt;... = add one or more units to the running target</item>
         <item>tac!Concatenate and print in reverse![file]...</item>
         <item>tail!Show last 10 lines![−n ±N|−c ±N] [−f [−s delay]] [file]!−c = last N bytes (-N) or from byte N onwards (+N)\n−n = last N lines (-N) or from line N onwards (+N)\n−f = follow end of file\n−s = probing delay (seconds) when following</item>
         <item>talk!Talk to another user!user[@host] [ttyname]</item>
@@ -118,6 +120,7 @@
         <item>who!Who is on the system![−bHqrT]\nwho am i!−b = print date/time of last reboot\n−H = print column headings\n−q = print names only\n−r = print current run level\n−T = read/write state of terminal</item>
         <item>write!Write to another user!user [tty]</item>
         <item>xargs!Construct arglist and execute command![−l linecnt] [−n argcnt] [−ip] [cmd [init-args]]!−i = replace {} in init-args by path name\n−l = linecnt input lines per command\n−n = argcnt input args per command\n−p = prompt for confirmation before execute</item>
+        <item>xz!Compress data![-cdkl0123456789] [file]...!−c = send output to stdout\n−d = decompress\n−k = keep original file\n−[0-9] = compression level (0=modest, 9=optimal)</item>
         <item>zcat!Show compressed files![−f] [file]...!−f = force decompression</item>
         <item>zgrep!Search regexp in compressed data![−bchilnqsv] regexp [file]...!−b = show byte number\n−c = show only count of matching lines\n−e = next argument is regexp\n−h = suppress file names in output\n−i = ignore upper/lower case distinction\n−l = list names of files with matching lines\n−n = show line number for matching lines\n−q = quit (no output to stdout)\n−s = suppress error messages\n−v = show all lines except those that match\n\nSee separate TAB for regular expressions</item>
         <item>zip!Package and compress files![zipfile [file...]]</item>

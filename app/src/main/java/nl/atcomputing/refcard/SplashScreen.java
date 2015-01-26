@@ -9,19 +9,23 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.widget.TextView;
 
-public class SplashScreen extends Activity {	
-	protected int _splashTime = 2000; 	// in milliseconds
-	private Thread splashTread;
+public class SplashScreen extends Activity {
+    protected int _splashTime = 2000; 	// in milliseconds
+    private Thread splashTread;
     private static final String KEY_APP_VERSION = "key_app_version";
 
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.splash);
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.splash);
 
         if( newVersion() != 1 ) {
 
@@ -45,17 +49,17 @@ public class SplashScreen extends Activity {
 
             splashTread.start();
         }
-	}
+    }
 
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-	    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-	    	synchronized(splashTread){
-	    		splashTread.notifyAll();
-	    	}
-	    }
-	    return true;
-	}
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            synchronized(splashTread){
+                splashTread.notifyAll();
+            }
+        }
+        return true;
+    }
 
     /**
      *
@@ -69,21 +73,36 @@ public class SplashScreen extends Activity {
             pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
             int lastVersionCode = sharedPreferences
                     .getInt(KEY_APP_VERSION, -1);
-            if( lastVersionCode == -1 ) {
-                return -1;
-            }
 
             int currentVersionCode = pInfo.versionCode;
             // Update version in preferences
             sharedPreferences.edit()
                     .putInt(KEY_APP_VERSION, currentVersionCode).commit();
-           if( currentVersionCode > lastVersionCode ) {
+
+            if( lastVersionCode == -1 ) {
+
+                //Hack to get legacy user's the changelog dialog
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
+                    if (pInfo.firstInstallTime < pInfo.lastUpdateTime) {
+                        Log.w("SplashScreen",
+                                "Doing firstInstall thingy");
+                        handleUpgrade(9, 9);
+                        return 1;
+                    }
+                }
+                // END HACK
+
+                // this is a fresh installation
+                return -1;
+            }
+
+            if( currentVersionCode > lastVersionCode ) {
                 if( handleUpgrade(currentVersionCode, lastVersionCode) ) {
                     return 1;
                 } else {
                     return 0;
                 }
-           }
+            }
         } catch (PackageManager.NameNotFoundException e) {
             Log.w("SplashScreen",
                     "Unable to determine current app version.");
@@ -94,14 +113,25 @@ public class SplashScreen extends Activity {
     private boolean handleUpgrade(int currentVersion, int lastVersionCode) {
         StringBuilder changelog = new StringBuilder();
         switch (lastVersionCode) {
-
+            case 9:
+                changelog.append("Command descriptions for sudo, systemctl, and xz\n\n");
+                changelog.append("Join our G+ community (https://plus.google.com/u/0/communities/110704484761810603123) to get access to the new beta version and have a say on what to add or remove!");
         }
 
         if( changelog.length() > 0 ) {
             AlertDialog.Builder box = new AlertDialog.Builder(this);
             box.setIcon(R.drawable.at);
             box.setTitle("New in Linux Reference Card");
-            box.setMessage(changelog.toString());
+
+            final SpannableString s =
+                    new SpannableString(changelog.toString());
+            Linkify.addLinks(s, Linkify.WEB_URLS);
+
+            TextView tv = new TextView(this);
+            tv.setText(s);
+            tv.setMovementMethod(LinkMovementMethod.getInstance());
+
+            box.setView(tv);
             box.setCancelable(false);
             box.setNeutralButton(R.string.confirm_ok, new DialogInterface.OnClickListener() {
                 @Override

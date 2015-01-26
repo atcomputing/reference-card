@@ -1,5 +1,0 @@
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_selected="true"
-          android:color="@color/tabselectedtext" />
-    <item android:color="@color/tabunselectedtext" /> <!-- default -->
-</selector><!-- From: file:/home/martijn/projects/software/Android/reference-card1/app/src/main/res/color/tab_text.xml -->
