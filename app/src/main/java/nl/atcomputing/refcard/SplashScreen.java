@@ -84,8 +84,6 @@ public class SplashScreen extends Activity {
                 //Hack to get legacy user's the changelog dialog
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.GINGERBREAD) {
                     if (pInfo.firstInstallTime < pInfo.lastUpdateTime) {
-                        Log.w("SplashScreen",
-                                "Doing firstInstall thingy");
                         handleUpgrade(9, 9);
                         return 1;
                     }
