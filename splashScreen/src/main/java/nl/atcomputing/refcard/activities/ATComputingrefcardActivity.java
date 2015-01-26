@@ -103,7 +103,8 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
         switch (lastVersionCode) {
             case 9:
                 fragment.addChangelogEntry("Command descriptions for sudo, systemctl, and xz\n");
-                fragment.addChangelogEntry("Material design\n");
+            case 10:
+                fragment.addChangelogEntry("New layout conform material design guidelines\n");
         }
 
         if( fragment.getChangelog().size() > 0 ) {
