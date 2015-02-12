@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="textPadding">9sp</dimen>
+    <dimen name="textSizeHuge">18sp</dimen>
+    <dimen name="textSizeLarge">17sp</dimen>
+    <dimen name="textSizeNormal">16sp</dimen>
+    <dimen name="textSizeSmall">15sp</dimen>
+    <dimen name="rowItemWidth">110dp</dimen>
+    <dimen name="iconSize">75dp</dimen>
+    <dimen name="cardselectedElevation">6dp</dimen>
+</resources>

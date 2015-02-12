@@ -1,0 +1,15 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="AppBaseTheme" >
+        <item name="android:windowActionBar">false</item>
+        <item name="android:colorPrimary">@color/atblue</item>
+        <item name="android:colorPrimaryDark">@color/atbluedark</item>
+        <item name="android:colorAccent">@color/atbluelight</item>
+        <item name="android:textColorPrimary">@color/atbluedark</item>
+        <item name="android:textColor">@color/atblue</item>
+        <item name="android:navigationBarColor">@color/atbluelight</item>
+        <item name="android:colorControlHighlight">@color/atbluelight</item>
+    </style>
+
+
+</resources>

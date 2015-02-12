@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="textPadding">11sp</dimen>
+    <dimen name="textSizeHuge">21sp</dimen>
+    <dimen name="textSizeLarge">20sp</dimen>
+    <dimen name="textSizeNormal">19sp</dimen>
+    <dimen name="textSizeSmall">18sp</dimen>
+    <dimen name="rowItemWidth">132dp</dimen>
+    <dimen name="iconSize">90dp</dimen>
+</resources>
