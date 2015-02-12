@@ -105,6 +105,8 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
                 fragment.addChangelogEntry("Command descriptions for sudo, systemctl, and xz\n");
             case 10:
                 fragment.addChangelogEntry("New layout conform material design guidelines\n");
+            case 12:
+                fragment.addChangelogEntry("Improved tablet support\n");
         }
 
         if( fragment.getChangelog().size() > 0 ) {
