@@ -1,4 +1,4 @@
-# AT Computing Examiner
+# Linux Reference Card
 
 GitHub repository for the [Linux Reference Card][1] Android app.
 
