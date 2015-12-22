@@ -36,6 +36,7 @@
         <item>chgrp!Change group of file![−R] group file...!−R = process files and directories recursively</item>
         <item>chmod!Change file permissions![−R] mode[,mode...] file...!−R = process files and directories recursively\n\n\nmode: [ugoa]+|-|=[rwxst]\n\tor\nmode: octalvalue, formed by adding\n\t4000 (setuid)\n\t2000 (setgid)\n\t1000 (sticky bit)\n\t0i00 (owner permission)\n\t00i0 (group permission)\n\t000i (others permission)\n\nValues for i are the sum of:\n\t4 (read)\n\t2 (write)\n\t1 (execute)</item>
         <item>chown!Change owner of file![−hR] user[:group] file...!−h = change owner of symlink\n−R = process files and directories recursively</item>
+        <item>clear!Clear the terminal screen</item>
         <item>cmp!Compare two files![−ls] file1 file2!−l = show byte number and differing bytes\n−s = show nothing\n\nOne file argument can be − for standard input</item>
         <item>compress!Compress data![−v] [file]...!−v = verbose</item>
         <item>cp!Copy file![−ipr] file... target!−i = interactive\n−p = preserve mode\n−r = process files and directories recursively</item>
