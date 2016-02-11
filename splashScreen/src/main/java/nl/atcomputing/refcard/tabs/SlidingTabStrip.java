@@ -21,16 +21,16 @@
 
 package nl.atcomputing.refcard.tabs;
 
-import nl.atcomputing.refcard.R;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import nl.atcomputing.refcard.R;
 
 class SlidingTabStrip extends LinearLayout {
 
@@ -49,8 +49,6 @@ class SlidingTabStrip extends LinearLayout {
     private final int mSelectedIndicatorThickness;
     private final Paint mSelectedIndicatorPaint;
 
-    private final int mDefaultBottomBorderColor;
-
     private final Paint mDividerPaint;
     private final float mDividerHeight;
 
@@ -60,11 +58,11 @@ class SlidingTabStrip extends LinearLayout {
     private SlidingTabLayout.TabColorizer mCustomTabColorizer;
     private final SimpleTabColorizer mDefaultTabColorizer;
 
-    SlidingTabStrip(Context context) {
+    public SlidingTabStrip(Context context) {
         this(context, null);
     }
 
-    SlidingTabStrip(Context context, AttributeSet attrs) {
+    public SlidingTabStrip(Context context, AttributeSet attrs) {
         super(context, attrs);
         setWillNotDraw(false);
 
@@ -74,7 +72,7 @@ class SlidingTabStrip extends LinearLayout {
         context.getTheme().resolveAttribute(R.attr.colorButtonNormal, outValue, true);
         final int themeForegroundColor =  outValue.data;
 
-        mDefaultBottomBorderColor = setColorAlpha(themeForegroundColor,
+        int defaultBottomBorderColor = setColorAlpha(themeForegroundColor,
                 DEFAULT_BOTTOM_BORDER_COLOR_ALPHA);
 
         mDefaultTabColorizer = new SimpleTabColorizer();
@@ -84,7 +82,7 @@ class SlidingTabStrip extends LinearLayout {
 
         mBottomBorderThickness = (int) (DEFAULT_BOTTOM_BORDER_THICKNESS_DIPS * density);
         mBottomBorderPaint = new Paint();
-        mBottomBorderPaint.setColor(mDefaultBottomBorderColor);
+        mBottomBorderPaint.setColor(defaultBottomBorderColor);
 
         mSelectedIndicatorThickness = (int) (SELECTED_INDICATOR_THICKNESS_DIPS * density);
         mSelectedIndicatorPaint = new Paint();
@@ -94,26 +92,26 @@ class SlidingTabStrip extends LinearLayout {
         mDividerPaint.setStrokeWidth((int) (DEFAULT_DIVIDER_THICKNESS_DIPS * density));
     }
 
-    void setCustomTabColorizer(SlidingTabLayout.TabColorizer customTabColorizer) {
+    public void setCustomTabColorizer(SlidingTabLayout.TabColorizer customTabColorizer) {
         mCustomTabColorizer = customTabColorizer;
         invalidate();
     }
 
-    void setSelectedIndicatorColors(int... colors) {
+    public void setSelectedIndicatorColors(int... colors) {
         // Make sure that the custom colorizer is removed
         mCustomTabColorizer = null;
         mDefaultTabColorizer.setIndicatorColors(colors);
         invalidate();
     }
 
-    void setDividerColors(int... colors) {
+    public void setDividerColors(int... colors) {
         // Make sure that the custom colorizer is removed
         mCustomTabColorizer = null;
         mDefaultTabColorizer.setDividerColors(colors);
         invalidate();
     }
 
-    void onViewPagerPageChanged(int position, float positionOffset) {
+    public void onViewPagerPageChanged(int position, float positionOffset) {
         mSelectedPosition = position;
         mSelectionOffset = positionOffset;
         invalidate();
@@ -203,11 +201,11 @@ class SlidingTabStrip extends LinearLayout {
             return mDividerColors[position % mDividerColors.length];
         }
 
-        void setIndicatorColors(int... colors) {
+        private void setIndicatorColors(int... colors) {
             mIndicatorColors = colors;
         }
 
-        void setDividerColors(int... colors) {
+        private void setDividerColors(int... colors) {
             mDividerColors = colors;
         }
     }

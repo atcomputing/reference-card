@@ -62,13 +62,12 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
         newVersion();
     }
 
-    /**
-     * Added to fix ClassCastException bug in some android versions
-     * as reported by users
-     */
     @Override
     protected void onRestoreInstanceState(Bundle state) {
-
+        /**
+        * Added to fix ClassCastException bug in some android versions
+        * as reported by users
+        */
     }
 
     @Override
@@ -128,6 +127,7 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
                 fragment.addChangelogEntry("New layout conform material design guidelines\n");
             case 12:
                 fragment.addChangelogEntry("Improved tablet support\n");
+            default:
         }
 
         if( fragment.getChangelog().size() > 0 ) {

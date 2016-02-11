@@ -21,11 +21,6 @@
 
 package nl.atcomputing.refcard.fragments;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import nl.atcomputing.refcard.R;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -34,6 +29,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import nl.atcomputing.refcard.R;
 
 /**
  * TODO fix highlighting http://stackoverflow.com/questions/10318642/highlight-for-selected-item-in-expandable-list

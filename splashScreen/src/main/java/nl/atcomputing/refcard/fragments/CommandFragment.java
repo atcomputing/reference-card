@@ -25,7 +25,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,17 +39,16 @@ import nl.atcomputing.refcard.recyclerview.ExpandableMapAdapter;
 import nl.atcomputing.refcard.utils.SparseBooleanArrayParcelable;
 
 public class CommandFragment extends Fragment {
+	private ExpandableMapAdapter mAdapter;
 
 	public static String getName() {
 		return "Command Reference";
 	}
 
-    private ExpandableMapAdapter mAdapter;
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		
+
 		RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.recycleview, container, false);
 		recyclerView.setHasFixedSize(true);
 		LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -62,7 +60,7 @@ public class CommandFragment extends Fragment {
 
 		// prepare an array list to map the command names with their descriptions
 		ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
-		
+
 		for (int i=0, nel=cmdall.length; i < nel; i++) {
 			String[] cmdTab = cmdall[i].split("!");
 

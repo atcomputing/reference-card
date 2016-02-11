@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/9adf130dc3ac482ba22c2b9fe2d45327)](https://www.codacy.com/app/m-brekhof/reference-card)
+
 # Linux Reference Card
 
 GitHub repository for the [Linux Reference Card][1] Android app.

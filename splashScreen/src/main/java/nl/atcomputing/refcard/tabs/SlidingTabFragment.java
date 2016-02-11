@@ -21,29 +21,25 @@
 
 package nl.atcomputing.refcard.tabs;
 
-import nl.atcomputing.refcard.R;
-import nl.atcomputing.refcard.fragments.CommandFragment;
-import nl.atcomputing.refcard.fragments.RegExpFragment;
-import nl.atcomputing.refcard.fragments.ViFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import nl.atcomputing.refcard.R;
+import nl.atcomputing.refcard.fragments.CommandFragment;
+import nl.atcomputing.refcard.fragments.RegExpFragment;
+import nl.atcomputing.refcard.fragments.ViFragment;
 
 /**
  * @author martijn
  *
  */
 public class SlidingTabFragment extends Fragment {
-
-	private SlidingTabLayout mSlidingTabLayout;
-
-	private ViewPager mViewPager;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,17 +49,17 @@ public class SlidingTabFragment extends Fragment {
 
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
-		mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
-		mViewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
+		ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+		viewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
 
-		mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
-		mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.atbluedark));
-		mSlidingTabLayout.setDividerColors(getResources().getColor(R.color.atbluedark));
-		mSlidingTabLayout.setBackgroundColor(getResources().getColor(R.color.atbluelight));
+		SlidingTabLayout slidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
+		slidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.atbluedark));
+		slidingTabLayout.setDividerColors(getResources().getColor(R.color.atbluedark));
+		slidingTabLayout.setBackgroundColor(getResources().getColor(R.color.atbluelight));
         //Does not work in landscape mode
 //		mSlidingTabLayout.setCustomTabView(R.layout.slidingtab_tabview, R.id.textview);
 
-		mSlidingTabLayout.setViewPager(mViewPager);
+		slidingTabLayout.setViewPager(viewPager);
 	}
 	
 	class MyPagerAdapter extends FragmentPagerAdapter {
