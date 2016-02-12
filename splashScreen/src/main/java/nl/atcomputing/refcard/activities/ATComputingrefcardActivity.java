@@ -99,15 +99,12 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
             pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
             int currentVersionCode = pInfo.versionCode;
 
-           // Update version in preferences
-            sharedPreferences.edit()
-                    .putInt(KEY_APP_VERSION, currentVersionCode).commit();
-
             int lastVersionCode = sharedPreferences
                     .getInt(KEY_APP_VERSION, -1);
-            if( lastVersionCode == -1 ) {
-                return;
-            }
+
+            // Update version in preferences
+            sharedPreferences.edit()
+                    .putInt(KEY_APP_VERSION, currentVersionCode).commit();
 
             if( currentVersionCode > lastVersionCode ) {
                 handleUpgrade(lastVersionCode);
