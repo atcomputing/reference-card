@@ -119,7 +119,6 @@
         <item>tput!Initialize terminal or query terminfo![−T type] capname [parms]...\ntput [−T type] −S!−S = read capnames from stdin\n−T = terminal type is type\n\nCapname can be:\n\tclear\n\tcup line col (cursor positioning)\n\thome\n\tinit\n\tlongname\n\treset\n\trmso (normal mode)\n\tsmso (standout mode)\n\tand many more...</item>
         <item>tr!Translate characters![−cds] string1 [string2]!−c = complement characters in string1\n−d = delete input characters in string1\n−s = squeeze repeated char from string2 to one</item>
         <item>tty!Get name of terminal![−s]!−s = just exit code (0=terminal, 1=otherwise)</item>
-        <item>tty!Get name of terminal![−s]!−s = just exit code (0=terminal, 1=otherwise)</item>
         <item>type!Show how command is interpreted!command</item>
         <item>typeset!Set attributes/values for variables![±irx] [name[=value]]!−i = integer arithmetic\n−r = qualify as read-only\n−x = qualify for automatic export\n\nSpecifying + instead of − removes a property</item>
         <item>umask!Set file creation mask!−S [mode]\numask [octal mode]!−S = show mode in symbolic form\n\nSee chmod for modes to be allowed\n(or denied when using octal notation)</item>
