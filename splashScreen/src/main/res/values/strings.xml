@@ -24,7 +24,7 @@
     <string name="app_name">Linux Reference Card</string>
     <string name="confirm_ok">OK</string>
     <string name="flag_title">Synopsis of:</string>
-    <string name="Copyright">© Copyright AT Computing 2011-2014</string>
+    <string name="Copyright">© Copyright AT Computing 2011-2016</string>
 
     <string name="about">About</string>
     <string name="explain_ref">This reference contains a list of frequently used commands, vim subcommands, and regular expression notation.</string>
