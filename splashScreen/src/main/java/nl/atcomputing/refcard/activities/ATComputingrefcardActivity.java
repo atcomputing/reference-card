@@ -125,6 +125,7 @@ public class ATComputingrefcardActivity extends ActionBarActivity {
             case 12:
                 fragment.addChangelogEntry("Improved tablet support\n");
             case 13:
+            case 14:
                 fragment.addChangelogEntry("Removed command descriptions for calendar, compress, dc, egrep, expand, false, fgrep, ftp, newgrp, slogin, true, uncompress, unexpand, wait\n");
                 fragment.addChangelogEntry("Added command descriptions for alias, cupsdisable, cupsenable, paste, unxz, which, zless, zmore\n");
             default:
